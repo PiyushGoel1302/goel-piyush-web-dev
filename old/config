@@ -1,0 +1,22 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://github.com/jannunzi/webdev-northeastern.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = original
+	merge = refs/heads/master
+[branch "2017-summer-2"]
+	remote = origin
+	merge = refs/heads/2017-summer-2
+[remote "github"]
+	url = https://github.com/PiyushGoel1302/goel-piyush-webdev.git
+	fetch = +refs/heads/*:refs/remotes/github/*
+[remote "original"]
+	url = https://github.com/PiyushGoel1302/goel-piyush-webdev.git
+	fetch = +refs/heads/*:refs/remotes/original/*
