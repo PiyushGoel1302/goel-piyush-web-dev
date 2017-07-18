@@ -1,0 +1,92 @@
+input, textarea {
+    margin-bottom: 5px;
+}
+
+.piy-body {
+    padding-top: 60px;
+}
+
+.piy .navbar-default {
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+.piy .navbar-default .navbar-brand {
+    color: white;
+}
+
+.piy .piy-glyphicon {
+    color: white;
+    align-content: center;
+}
+
+.piy .piy-split-view {
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    bottom: 60px;
+    overflow-y: scroll;
+}
+
+.piy .piy-split-view-left {
+    position: absolute;
+    top: 60px;
+    bottom: 60px;
+    z-index: 1;
+    overflow-y: scroll;
+}
+
+@media (min-width: 1200px) {
+    .col-lg-8.piy-split-view-right {
+        width: 66.66666667%;
+        position: absolute;
+        right: 0px;
+        top: 60px;
+        bottom: 60px;
+        overflow-y: scroll;
+    }
+}
+
+.piy .piy-widget-header {
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.piy .piy-para-header {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.piy .piy-paragraph {
+    font-style: italic;
+}
+
+.piy .piy-justify-glyphi {
+    color: black;
+    font-size: 20px;
+    background-color: white;
+}
+
+.piy .piy-cog-glyphi {
+    font-size: 20px;
+    background-color: white;
+}
+
+.piy .piy-margin-bottom {
+    margin-bottom: 10px;
+}
+
+.piy .piy-image {
+    height: 300px;
+    width: 560px;
+}
+
+.piy .piy-glyphicon-split {
+    position: absolute;
+    z-index: 1;
+}
+
+mark {
+    background-color: white;
+    color: #337ab7;
+}

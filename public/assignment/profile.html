@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link href="../vendor/css/bootstrap/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link href="css/styles.css"
+          rel="stylesheet"/>
+</head>
+<body class="piy-body">
+    <div class="piy piy-profile">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-text pull-right">
+                    <a href="profile.html" class="piy-glyphicon">
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </a>
+                </div>
+                <div class="navbar-header">
+                    <a class="navbar-brand">Profile</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid piy-split-view">
+            <label for="firstname">First Name</label>
+            <input name="firstname"
+                   class="form-control"
+                   placeholder="First Name"
+                   id="firstname"/>
+
+            <label for="lastname">Last Name</label>
+            <input name="lastname"
+                   class="form-control"
+                   placeholder="Last Name"
+                   id="lastname"/>
+
+            <label for="username">Username</label>
+            <input name="username"
+                   readonly
+                   class="form-control"
+                   value="Username"
+                   id="username"/>
+
+            <label for="email">Email</label>
+            <input name="email"
+                   type="email"
+                   class="form-control"
+                   placeholder="Email"
+                   id="email"/>
+
+            <label for="dob">Date of Birth</label>
+            <input name="dob"
+                   type="date"
+                   class="form-control"
+                   placeholder="mm/dd/yyyy"
+                   id="dob"/>
+
+            <a class="btn btn-default btn-primary btn-block"
+               href="website-list.html"
+               role="button">Websites</a>
+
+            <a class="btn btn-default btn-danger btn-block"
+               href="login.html"
+               role="button">Logout</a>
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container-fluid">
+                <div class="navbar-text pull-right">
+                    <a href="index.html" class="piy-glyphicon">
+                        <span class="glyphicon glyphicon-home"></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

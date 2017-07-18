@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Website</title>
+    <link href="../vendor/css/bootstrap/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link href="css/styles.css"
+          rel="stylesheet"/>
+</head>
+<body class="piy-body">
+    <div class="piy piy-editwebsite">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-4 visible-lg">
+                        <div class="navbar-text pull-left">
+                            <a href="website-list.html" class="piy-glyphicon">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                        </div>
+                        <div class="navbar-header">
+                            <a class="navbar-brand">Websites</a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-8">
+                        <div class="navbar-text pull-right">
+                            <a href="website-list.html" class="piy-glyphicon">
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </a>
+                        </div>
+                        <div class="navbar-header">
+                            <a class="navbar-brand">Edit Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4 visible-lg piy-split-view-left">
+                    <ul class="list-group">
+                        <li class="list-group-item active">
+                            <div class="row">
+                                <div class="col-xs-10">Name</div>
+                                <div class="col-xs-2">
+                                    <a href="website-new.html">
+                                        <span class="pull-right glyphicon glyphicon-plus" style="color: white"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <a href="page-list.html">
+                                        Facebook
+                                    </a>
+                                </div>
+                                <div class="col-xs-2">
+                                    <a href="website-edit.html">
+                                        <span class="pull-right glyphicon glyphicon-cog"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <a href="page-list.html">
+                                        Twitter
+                                    </a>
+                                </div>
+                                <div class="col-xs-2">
+                                    <a href="website-edit.html">
+                                        <span class="pull-right glyphicon glyphicon-cog"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <a href="page-list.html">
+                                        Amazon
+                                    </a>
+                                </div>
+                                <div class="col-xs-2">
+                                    <a href="website-edit.html">
+                                        <span class="pull-right glyphicon glyphicon-cog"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <a href="page-list.html">
+                                        Wikipedia
+                                    </a>
+                                </div>
+                                <div class="col-xs-2">
+                                    <a href="website-edit.html">
+                                        <span class="pull-right glyphicon glyphicon-cog"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-lg-8 piy-split-view-right">
+                    <label for="websitename">Website Name</label>
+                    <input name="websitename"
+                           class="form-control"
+                           placeholder="Website Name"
+                           id="websitename"/>
+
+                    <label for="description">Website Description</label>
+                    <textarea name="description"
+                              rows="5"
+                              class="form-control"
+                              placeholder="Website Description"
+                              id="description"></textarea>
+
+                    <a class="btn btn-default btn-danger btn-block"
+                       href="website-list.html"
+                       role="button">Delete</a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container-fluid">
+                <div class="navbar-text pull-right">
+                    <a href="index.html" class="piy-glyphicon">
+                        <span class="glyphicon glyphicon-home"></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

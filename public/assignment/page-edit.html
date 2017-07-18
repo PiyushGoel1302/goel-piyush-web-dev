@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Page</title>
+    <link href="../vendor/css/bootstrap/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link href="css/styles.css"
+          rel="stylesheet"/>
+</head>
+<body class="piy-body">
+    <div class="piy piy-editpage">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-4 visible-lg">
+                        <div class="navbar-text pull-left">
+                            <a href="page-list.html" class="piy-glyphicon">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                        </div>
+                        <div class="navbar-header">
+                            <a class="navbar-brand">Pages</a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-8">
+                        <div class="navbar-text pull-right">
+                            <a href="page-list.html" class="piy-glyphicon">
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </a>
+                        </div>
+                        <div class="navbar-header">
+                            <a class="navbar-brand">Edit Page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4 visible-lg piy-split-view-left">
+                    <ul class="list-group">
+                        <li class="list-group-item active">
+                            <div class="row">
+                                <div class="col-xs-10">Name</div>
+                                <div class="col-xs-2">
+                                    <a href="page-new.html">
+                                        <span class="pull-right glyphicon glyphicon-plus" style="color: white"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <a href="widget-list.html">
+                                        Facebook
+                                    </a>
+                                </div>
+                                <div class="col-xs-2">
+                                    <a href="page-edit.html">
+                                        <span class="pull-right glyphicon glyphicon-cog"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <a href="widget-list.html">
+                                        Twitter
+                                    </a>
+                                </div>
+                                <div class="col-xs-2">
+                                    <a href="page-edit.html">
+                                        <span class="pull-right glyphicon glyphicon-cog"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <a href="widget-list.html">
+                                        Amazon
+                                    </a>
+                                </div>
+                                <div class="col-xs-2">
+                                    <a href="page-edit.html">
+                                        <span class="pull-right glyphicon glyphicon-cog"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <a href="widget-list.html">
+                                        Wikipedia
+                                    </a>
+                                </div>
+                                <div class="col-xs-2">
+                                    <a href="page-edit.html">
+                                        <span class="pull-right glyphicon glyphicon-cog"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-lg-8 piy-split-view-right">
+                    <label for="name">Name</label>
+                    <input name="name"
+                           class="form-control"
+                           placeholder="Page Name"
+                           id="name"/>
+
+                    <label for="title">Title</label>
+                    <input name="title"
+                           class="form-control"
+                           placeholder="Page title"
+                           id="title"/>
+
+                    <a class="btn btn-default btn-danger btn-block"
+                       href="page-list.html"
+                       role="button">Delete</a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container-fluid">
+                <div class="navbar-text pull-right">
+                    <a href="index.html" class="piy-glyphicon">
+                        <span class="glyphicon glyphicon-home"></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

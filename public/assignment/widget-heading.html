@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Widget Header</title>
+    <link href="../vendor/css/bootstrap/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link href="css/styles.css"
+          rel="stylesheet"/>
+</head>
+<body class="piy piy-body">
+    <div class="piy piy-widgetheader">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-text pull-left">
+                    <a href="widget-list.html" class="piy-glyphicon">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </div>
+                <div class="navbar-text pull-right">
+                    <a href="widget-list.html" class="piy-glyphicon">
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </a>
+                </div>
+                <div class="navbar-header">
+                    <a class="navbar-brand">Widget Edit</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid piy-split-view">
+            <label for="name">Name</label>
+            <input name="name"
+                   class="form-control"
+                   placeholder="Header"
+                   id="name"/>
+
+            <label for="text">Text</label>
+            <textarea name="text"
+                      rows="5"
+                      class="form-control"
+                      placeholder="Text"
+                      id="text"></textarea>
+
+            <label for="size">Size</label>
+            <input name="size"
+                   class="form-control"
+                   placeholder="3"
+                   id="size"/>
+
+            <a class="btn btn-default btn-danger btn-block"
+               href="widget-list.html"
+               role="button">Delete</a>
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container-fluid">
+                <div class="navbar-text pull-right">
+                    <a href="index.html" class="piy-glyphicon">
+                        <span class="glyphicon glyphicon-home"></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>
