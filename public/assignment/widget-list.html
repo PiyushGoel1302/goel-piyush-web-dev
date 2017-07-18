@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Widgets List</title>
-    <link href="../vendor/css/bootstrap/css/bootstrap.min.css"
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet"/>
     <link href="css/styles.css"
           rel="stylesheet"/>
@@ -58,9 +59,12 @@
             </div>
 
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-12
+                            col-sm-10 col-sm-offset-1
+                            col-md-8 col-md-offset-2
+                            col-lg-6 col-lg-offset-3">
                     <img src="https://cbspittsburgh.files.wordpress.com/2016/02/zika-virus-web.jpg?w=1024"
-                         class="img-responsive center-block piy-margin-bottom piy-image"
+                         class="img-responsive piy-margin-bottom piy-image"
                          alt="Responsive image">
                 </div>
                 <div class="col-xs-12 piy-glyphicon-split">
@@ -101,13 +105,15 @@
             </div>
 
             <div class="row">
-                <div class="col-xs-12">
-                    <iframe width="560"
-                            height="300"
-                            src="https://www.youtube.com/embed/uLWLashCXHE"
+                <div class="col-xs-12
+                            col-sm-10 col-sm-offset-1
+                            col-md-8 col-md-offset-2
+                            col-lg-6 col-lg-offset-3
+                            video-container piy-margin-bottom">
+                    <iframe src="https://www.youtube.com/embed/uLWLashCXHE"
                             frameborder="0"
                             allowfullscreen
-                            class="center-block piy-margin-bottom"></iframe>
+                            class="center-block video-container-iframe"></iframe>
                 </div>
                 <div class="col-xs-12 piy-glyphicon-split">
                     <a href="widget-youtube.html">
@@ -134,6 +140,14 @@
 
         <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container-fluid">
+                <div class="navbar-text pull-left">
+                    <a class="piy-glyphicon">
+                        <span class="glyphicon glyphicon-play"></span>
+                    </a>
+                    <a class="piy-glyphicon">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                </div>
                 <div class="navbar-text pull-right">
                     <a href="index.html" class="piy-glyphicon">
                         <span class="glyphicon glyphicon-home"></span>
