@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Widget Youtube</title>
+    <title>Widget Header</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet"/>
-    <link href="css/styles.css"
+    <link href="../../css/styles.css"
           rel="stylesheet"/>
 </head>
 <body class="piy piy-body">
-    <div class="piy piy-widgetyoutube">
+    <div class="piy piy-widgetheader">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-text pull-left">
@@ -33,28 +33,26 @@
             <label for="name">Name</label>
             <input name="name"
                    class="form-control"
-                   placeholder="Name"
+                   placeholder="Header"
                    id="name"/>
 
             <label for="text">Text</label>
             <textarea name="text"
-                      rows="3"
+                      rows="5"
                       class="form-control"
                       placeholder="Text"
-                      id="text"></textarea>
+                      id="text">US Senate Reaches Compromise on Emergency Zika Funding</textarea>
 
-            <label for="url">URL</label>
-            <input name="url"
-                   class="form-control"
-                   placeholder="URL"
-                   value="https://youtu.be/uLWLashCXHE"
-                   id="url"/>
-
-            <label for="width">Width</label>
-            <input name="width"
-                   class="form-control"
-                   placeholder="100%"
-                   id="width"/>
+            <label for="size">Size</label>
+            <select name="size"
+                    class="form-control piy-margin-bottom"
+                    id="size">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
             <a class="btn btn-default btn-danger btn-block"
                href="widget-list.html"
@@ -64,7 +62,7 @@
         <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container-fluid">
                 <div class="navbar-text pull-right">
-                    <a href="index.html" class="piy-glyphicon">
+                    <a href="../../index.html" class="piy-glyphicon">
                         <span class="glyphicon glyphicon-home"></span>
                     </a>
                 </div>

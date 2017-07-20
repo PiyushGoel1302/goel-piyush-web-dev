@@ -1,0 +1,63 @@
+<div class="piy piy-body piy-profile" ng-controller="profileController">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a href="profile.view.client.html" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand">Profile</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid piy-split-view">
+        <label for="firstname">First Name</label>
+        <input name="firstname"
+               ng-model="user.firstName"
+               class="form-control"
+               placeholder="First Name"
+               id="firstname"/>
+
+        <label for="lastname">Last Name</label>
+        <input name="lastname"
+               ng-model="user.lastName"
+               class="form-control"
+               placeholder="Last Name"
+               id="lastname"/>
+
+        <label for="username">Username</label>
+        <input name="username"
+               ng-model="user.username"
+               readonly
+               class="form-control"
+               id="username"/>
+
+        <label for="email">Email</label>
+        <input name="email"
+               type="email"
+               ng-model="user.email"
+               class="form-control"
+               placeholder="Email"
+               id="email"/>
+
+        <a class="btn btn-default btn-primary btn-block"
+           href="../../websites/templates/website-list.html"
+           role="button">Websites</a>
+
+        <a class="btn btn-default btn-danger btn-block"
+           href="#!login"
+           role="button">Logout</a>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a href="../../index.html" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
