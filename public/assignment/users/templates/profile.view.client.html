@@ -1,8 +1,8 @@
-<div class="piy piy-body piy-profile" ng-controller="profileController">
+<div class="piy piy-body piy-profile">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-text pull-right">
-                <a href="profile.view.client.html" class="piy-glyphicon">
+                <a ng-click="model.updateUser(model.user)" class="piy-glyphicon">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -15,21 +15,21 @@
     <div class="container-fluid piy-split-view">
         <label for="firstname">First Name</label>
         <input name="firstname"
-               ng-model="user.firstName"
+               ng-model="model.user.firstName"
                class="form-control"
                placeholder="First Name"
                id="firstname"/>
 
         <label for="lastname">Last Name</label>
         <input name="lastname"
-               ng-model="user.lastName"
+               ng-model="model.user.lastName"
                class="form-control"
                placeholder="Last Name"
                id="lastname"/>
 
         <label for="username">Username</label>
         <input name="username"
-               ng-model="user.username"
+               ng-model="model.user.username"
                readonly
                class="form-control"
                id="username"/>
@@ -37,7 +37,7 @@
         <label for="email">Email</label>
         <input name="email"
                type="email"
-               ng-model="user.email"
+               ng-model="model.user.email"
                class="form-control"
                placeholder="Email"
                id="email"/>
@@ -46,9 +46,13 @@
            href="../../websites/templates/website-list.html"
            role="button">Websites</a>
 
-        <a class="btn btn-default btn-danger btn-block"
+        <a class="btn btn-default btn-success btn-block"
            href="#!login"
            role="button">Logout</a>
+
+        <a class="btn btn-default btn-danger btn-block"
+           ng-click="model.unregister(model.user)"
+           role="button">Unregister</a>
     </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">

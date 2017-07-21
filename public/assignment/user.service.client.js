@@ -44,7 +44,11 @@
 
         return {
             "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
-            "findUserByUserId": findUserByUserId
+            "findUserByUserId": findUserByUserId,
+            "registerUser": registerUser,
+            "findUserByUsername": findUserByUsername,
+            "updateUser": updateUser,
+            "unregister": unregister
         };
 
         function findUserByUsernameAndPassword(username, password) {
@@ -64,6 +68,39 @@
                 }
             }
             return null;
+        }
+
+        function registerUser(user) {
+            user._id = (new Date()).getTime() + "";
+            users.push(user);
+            return user;
+        }
+
+        function findUserByUsername(user) {
+            for(var u in users) {
+                if(user.username === users[u].username) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function updateUser(userId, user) {
+            for(var u in users) {
+                if(users[u]._id === userId) {
+                    users[u] = user;
+                    return users[u];
+                }
+            }
+            return null;
+        }
+
+        function unregister(userId) {
+            for(var u in users) {
+                if(users[u]._id === userId) {
+                    delete users[u];
+                }
+            }
         }
     }
 })();

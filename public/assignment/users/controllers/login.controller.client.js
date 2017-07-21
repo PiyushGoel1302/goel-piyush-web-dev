@@ -6,11 +6,24 @@
         .module("WamApp")
         .controller("loginController", loginController);
 
-    function loginController($scope, $location, userService) {
-        $scope.login = function (user) {
-            var user = userService.findUserByUsernameAndPassword(user.username, user.password);
+    function loginController($location, userService) {
+        var model = this;
+
+        model.login = login;
+
+        function init() {
+
+        }
+        init();
+
+        function login(user) {
+            if(!user) {
+                model.errorMessage = "Enter username and password";
+                return;
+            }
+            user = userService.findUserByUsernameAndPassword(user.username, user.password);
             if(user === null) {
-                $scope.errorMessage = "Invalid username and password!!!";
+                model.errorMessage = "Invalid username and password!!!";
             } else {
                 $location.url("profile/" + user._id);
             }
