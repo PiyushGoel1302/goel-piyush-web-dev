@@ -6,13 +6,13 @@
         .module("WamApp")
         .controller("websiteListController", websiteListController);
 
-    function websiteListController($routeParams, websiteService) {
+    function websiteListController($routeParams, websiteService, $location) {
         var model = this;
 
         model.userId = $routeParams.userId;
 
         function init() {
-            model.websites = websiteService.findWebsitesForUser(model.userId);
+            model.websites = websiteService.findWebsitesByUser(model.userId);
         }
         init();
     }

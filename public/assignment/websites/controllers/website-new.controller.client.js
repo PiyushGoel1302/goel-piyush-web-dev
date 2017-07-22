@@ -13,12 +13,12 @@
         model.addNewWebsite = addNewWebsite;
 
         function init() {
-            model.websites = websiteService.findWebsitesForUser(model.userId);
+            model.websites = websiteService.findWebsitesByUser(model.userId);
         }
         init();
 
         function addNewWebsite(website) {
-            if(!website.name) {
+            if(!website || !website.name) {
                 model.errorMessage = "Enter the name of website";
                 return;
             }

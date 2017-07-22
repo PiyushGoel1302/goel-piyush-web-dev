@@ -33,5 +33,28 @@
                 controller: "websiteNewController",
                 controllerAs: "model"
             })
+            .when("/user/:userId/website/:wid", {
+                templateUrl: "websites/templates/website-edit.view.client.html",
+                controller: "websiteEditController",
+                controllerAs: "model"
+            })
+            .when("/user/:userId/website/:wid/page", {
+                templateUrl: "pages/templates/page-list.view.client.html",
+                controller: "pageListController",
+                controllerAs: "model"
+            })
+            .when("/user/:userId/website/:wid/page/new", {
+                templateUrl: "pages/templates/page-new.view.client.html",
+                controller: "pageNewController",
+                controllerAs: "model"
+            })
+            .when("/user/:userId/website/:wid/page/:pid", {
+                templateUrl: "pages/templates/page-edit.view.client.html",
+                controller: "pageEditController",
+                controllerAs: "model"
+            })
+            .when("#!/user/:userId/website/:wid/page/:pid/widget", {
+                templateUrl: "widgets/templates/widget-list.view.client.html"
+            })
     }
 })();

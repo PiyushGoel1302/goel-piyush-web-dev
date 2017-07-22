@@ -1,30 +1,30 @@
-<div class="piy piy-body piy-editwebsite">
+<div class="piy piy-body piy-editpage">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-4 visible-lg">
                     <div class="navbar-text pull-left">
-                        <a href="#!/user/{{model.userId}}/website" class="piy-glyphicon">
+                        <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page" class="piy-glyphicon">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
                     </div>
                     <div class="navbar-header">
-                        <a class="navbar-brand">Websites</a>
+                        <a class="navbar-brand">Pages</a>
                     </div>
                 </div>
                 <div class="col-xs-12 col-lg-8">
                     <div class="navbar-text pull-left hidden-lg">
-                        <a href="#!/user/{{model.userId}}/website" class="piy-glyphicon">
+                        <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page" class="piy-glyphicon">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
                     </div>
                     <div class="navbar-text pull-right">
-                        <a ng-click="model.updateWebsite(model.website)" class="piy-glyphicon">
+                        <a ng-click="model.updatePage(model.page)" class="piy-glyphicon">
                             <span class="glyphicon glyphicon-ok"></span>
                         </a>
                     </div>
                     <div class="navbar-header">
-                        <a class="navbar-brand">Edit Website</a>
+                        <a class="navbar-brand">Edit Page</a>
                     </div>
                 </div>
             </div>
@@ -39,21 +39,21 @@
                         <div class="row">
                             <div class="col-xs-10">Name</div>
                             <div class="col-xs-2">
-                                <a href="#!/user/{{model.userId}}/website/new">
+                                <a href="page-new.view.client.html">
                                     <span class="pull-right glyphicon glyphicon-plus piy-glyphicon"></span>
                                 </a>
                             </div>
                         </div>
                     </li>
-                    <li ng-repeat="website in model.websites" class="list-group-item">
+                    <li ng-repeat="page in model.pages" class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">
-                                    {{website.name}}
+                                <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{page._id}}/widget">
+                                    {{page.name}}
                                 </a>
                             </div>
                             <div class="col-xs-2">
-                                <a href="#!/user/{{model.userId}}/website/{{website._id}}">
+                                <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{page._id}}">
                                     <span class="pull-right glyphicon glyphicon-cog"></span>
                                 </a>
                             </div>
@@ -67,23 +67,22 @@
                     {{model.errorMessage}}
                 </div>
 
-                <label for="websitename">Website Name</label>
-                <input name="websitename"
-                       ng-model="model.website.name"
+                <label for="name">Name</label>
+                <input name="name"
+                       ng-model="model.page.name"
                        class="form-control"
-                       placeholder="Website Name"
-                       id="websitename"/>
+                       placeholder="Page Name"
+                       id="name"/>
 
-                <label for="description">Website Description</label>
-                <textarea name="description"
-                          ng-model="model.website.description"
-                          rows="5"
-                          class="form-control"
-                          placeholder="Website Description"
-                          id="description">{{model.website.description}}</textarea>
+                <label for="title">Title</label>
+                <input name="title"
+                       ng-model="model.page.description"
+                       class="form-control"
+                       placeholder="Page title"
+                       id="title"/>
 
                 <a class="btn btn-default btn-danger btn-block"
-                   ng-click="model.deleteWebsite(model.website)"
+                   ng-click="model.deletePage(model.page)"
                    role="button">Delete</a>
             </div>
         </div>
