@@ -23,5 +23,15 @@
                 controller: "profileController",
                 controllerAs: "model"
             })
+            .when("/user/:userId/website", {
+                templateUrl: "websites/templates/website-list.view.client.html",
+                controller: "websiteListController",
+                controllerAs: "model"
+            })
+            .when("/user/:userId/website/new", {
+                templateUrl: "websites/templates/website-new.view.client.html",
+                controller: "websiteNewController",
+                controllerAs: "model"
+            })
     }
 })();

@@ -79,7 +79,7 @@
         function findUserByUsername(user) {
             for(var u in users) {
                 if(user.username === users[u].username) {
-                    return true;
+                    return users[u];
                 }
             }
             return false;

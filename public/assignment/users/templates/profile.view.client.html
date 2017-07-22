@@ -43,7 +43,7 @@
                id="email"/>
 
         <a class="btn btn-default btn-primary btn-block"
-           href="../../websites/templates/website-list.html"
+           href="#!/user/{{model.user._id}}/website"
            role="button">Websites</a>
 
         <a class="btn btn-default btn-success btn-block"
@@ -58,8 +58,8 @@
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-text pull-right">
-                <a href="../../index.html" class="piy-glyphicon">
-                    <span class="glyphicon glyphicon-home"></span>
+                <a href="#!/profile/{{model.user._id}}" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
         </div>

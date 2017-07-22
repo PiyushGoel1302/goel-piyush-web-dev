@@ -1,0 +1,98 @@
+<div class="piy piy-body piy-newwebsite">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4 visible-lg">
+                    <div class="navbar-text pull-left">
+                        <a href="#!/user/{{model.userId}}/website" class="piy-glyphicon">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand">Websites</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-8">
+                    <div class="navbar-text pull-left hidden-lg">
+                        <a href="#!/user/{{model.userId}}/website" class="piy-glyphicon">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-text pull-right">
+                        <a ng-click="model.addNewWebsite(model.website)" class="piy-glyphicon">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand">New Website</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 visible-lg piy-split-view-left">
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        <div class="row">
+                            <div class="col-xs-10">Name</div>
+                            <div class="col-xs-2">
+                                <a href="#!/user/{{model.userId}}/website/new">
+                                    <span class="pull-right glyphicon glyphicon-plus piy-glyphicon"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li ng-repeat="website in model.websites" class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <a href="../../pages/templates/page-list.html">
+                                    {{website.name}}
+                                </a>
+                            </div>
+                            <div class="col-xs-2">
+                                <a href="website-edit.view.client.html">
+                                    <span class="pull-right glyphicon glyphicon-cog"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-xs-12 col-lg-8 piy-split-view-right">
+
+                <div ng-show="model.errorMessage" class="alert alert-danger">
+                    {{model.errorMessage}}
+                </div>
+
+                <label for="name">Name</label>
+                <input name="name"
+                       ng-model="model.website.name"
+                       class="form-control"
+                       placeholder="Website Name"
+                       id="name"/>
+
+                <label for="description">Description</label>
+                <textarea name="description"
+                          ng-model="model.website.description"
+                          rows="5"
+                          class="form-control"
+                          placeholder="Description"
+                          id="description"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a href="#!/profile/{{model.userId}}" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
