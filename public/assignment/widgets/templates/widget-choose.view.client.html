@@ -1,152 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Choose widget</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          rel="stylesheet"/>
-    <link href="../../css/styles.css"
-          rel="stylesheet"/>
-</head>
-<body class="piy piy-body">
-    <div class="piy piy-widgetchoose">
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-text pull-left">
-                    <a href="widget-list.view.client.html" class="piy-glyphicon">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                </div>
-                <div class="navbar-header">
-                    <a class="navbar-brand">Choose Widget</a>
-                </div>
+<div class="piy piy-body piy-widgetchoose">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-left">
+                <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
             </div>
-        </nav>
-
-        <div class="container-fluid piy-split-view">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <div class="row">
-                        <a href="widget-heading.view.client.html">
-                            <div class="col-xs-9">Header</div>
-                            <div class="col-xs-3">
-                                <span class="pull-right glyphicon glyphicon-pencil"></span>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <a href="#">
-                            <div class="col-xs-9">Label</div>
-                            <div class="col-xs-3">
-                                <span class="pull-right glyphicon glyphicon-pencil"></span>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <a href="#">
-                            <div class="col-xs-9">HTML</div>
-                            <div class="col-xs-3">
-                                <span class="pull-right glyphicon glyphicon-pencil"></span>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <a href="#">
-                            <div class="col-xs-9">Text Input</div>
-                            <div class="col-xs-3">
-                                <span class="pull-right glyphicon glyphicon-pencil"></span>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <a href="#">
-                            <div class="col-xs-9">Link</div>
-                            <div class="col-xs-3">
-                                <span class="pull-right glyphicon glyphicon-pencil"></span>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <a href="#">
-                            <div class="col-xs-9">Button</div>
-                            <div class="col-xs-3">
-                                <span class="pull-right glyphicon glyphicon-pencil"></span>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <a href="widget-image.view.client.html">
-                            <div class="col-xs-9">Image</div>
-                            <div class="col-xs-3">
-                                <span class="pull-right glyphicon glyphicon-pencil"></span>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <a href="widget-youtube.view.client.html">
-                            <div class="col-xs-9">Youtube</div>
-                            <div class="col-xs-3">
-                                <span class="pull-right glyphicon glyphicon-pencil"></span>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <a href="#">
-                            <div class="col-xs-9">Data Table</div>
-                            <div class="col-xs-3">
-                                <span class="pull-right glyphicon glyphicon-pencil"></span>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <a href="#">
-                            <div class="col-xs-9">Repeater</div>
-                            <div class="col-xs-3">
-                                <span class="pull-right glyphicon glyphicon-pencil"></span>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-            </ul>
+            <div class="navbar-header">
+                <a class="navbar-brand">Choose Widget</a>
+            </div>
         </div>
+    </nav>
 
-        <nav class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container-fluid">
-                <div class="navbar-text pull-right">
-                    <a href="../../index.html" class="piy-glyphicon">
-                        <span class="glyphicon glyphicon-home"></span>
+    <div class="container-fluid piy-split-view">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <a ng-click="model.createWidget('HEADING')">
+                        <div class="col-xs-9">Header</div>
+                        <div class="col-xs-3">
+                            <span class="pull-right glyphicon glyphicon-pencil"></span>
+                        </div>
                     </a>
                 </div>
-            </div>
-        </nav>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <a>
+                        <div class="col-xs-9">Label</div>
+                        <div class="col-xs-3">
+                            <span class="pull-right glyphicon glyphicon-pencil"></span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <a>
+                        <div class="col-xs-9">HTML</div>
+                        <div class="col-xs-3">
+                            <span class="pull-right glyphicon glyphicon-pencil"></span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <a>
+                        <div class="col-xs-9">Text Input</div>
+                        <div class="col-xs-3">
+                            <span class="pull-right glyphicon glyphicon-pencil"></span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <a>
+                        <div class="col-xs-9">Link</div>
+                        <div class="col-xs-3">
+                            <span class="pull-right glyphicon glyphicon-pencil"></span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <a>
+                        <div class="col-xs-9">Button</div>
+                        <div class="col-xs-3">
+                            <span class="pull-right glyphicon glyphicon-pencil"></span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <a ng-click="model.createWidget('IMAGE')">
+                        <div class="col-xs-9">Image</div>
+                        <div class="col-xs-3">
+                            <span class="pull-right glyphicon glyphicon-pencil"></span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <a ng-click="model.createWidget('YOUTUBE')">
+                        <div class="col-xs-9">Youtube</div>
+                        <div class="col-xs-3">
+                            <span class="pull-right glyphicon glyphicon-pencil"></span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <a>
+                        <div class="col-xs-9">Data Table</div>
+                        <div class="col-xs-3">
+                            <span class="pull-right glyphicon glyphicon-pencil"></span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <a>
+                        <div class="col-xs-9">Repeater</div>
+                        <div class="col-xs-3">
+                            <span class="pull-right glyphicon glyphicon-pencil"></span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        </ul>
     </div>
-</body>
-</html>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a href="#!/profile/{{model.userId}}" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>

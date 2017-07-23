@@ -53,8 +53,20 @@
                 controller: "pageEditController",
                 controllerAs: "model"
             })
-            .when("#!/user/:userId/website/:wid/page/:pid/widget", {
-                templateUrl: "widgets/templates/widget-list.view.client.html"
+            .when("/user/:userId/website/:wid/page/:pid/widget", {
+                templateUrl: "widgets/templates/widget-list.view.client.html",
+                controller: "widgetListController",
+                controllerAs: "model"
+            })
+            .when("/user/:userId/website/:wid/page/:pid/widget/new", {
+                templateUrl: "widgets/templates/widget-choose.view.client.html",
+                controller: "widgetChooserController",
+                controllerAs: "model"
+            })
+            .when("/user/:userId/website/:wid/page/:pid/widget/:wgid", {
+                templateUrl: "widgets/templates/widget-edit.view.client.html",
+                controller: "widgetEditController",
+                controllerAs: "model"
             })
     }
 })();

@@ -1,73 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Widget Header</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          rel="stylesheet"/>
-    <link href="../../css/styles.css"
-          rel="stylesheet"/>
-</head>
-<body class="piy piy-body">
-    <div class="piy piy-widgetheader">
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-text pull-left">
-                    <a href="widget-list.view.client.html" class="piy-glyphicon">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                </div>
-                <div class="navbar-text pull-right">
-                    <a href="widget-list.view.client.html" class="piy-glyphicon">
-                        <span class="glyphicon glyphicon-ok"></span>
-                    </a>
-                </div>
-                <div class="navbar-header">
-                    <a class="navbar-brand">Widget Edit</a>
-                </div>
+<div class="piy piy-body piy-widgetheader">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-left">
+                <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
             </div>
-        </nav>
+            <div class="navbar-text pull-right">
+                <a ng-click="model.updateWidget(model.widget)" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand">Widget Edit</a>
+            </div>
+        </div>
+    </nav>
 
-        <div class="container-fluid piy-split-view">
-            <label for="name">Name</label>
-            <input name="name"
-                   class="form-control"
-                   placeholder="Header"
-                   id="name"/>
+    <div class="container-fluid piy-split-view">
 
-            <label for="text">Text</label>
-            <textarea name="text"
-                      rows="5"
-                      class="form-control"
-                      placeholder="Text"
-                      id="text">US Senate Reaches Compromise on Emergency Zika Funding</textarea>
-
-            <label for="size">Size</label>
-            <select name="size"
-                    class="form-control piy-margin-bottom"
-                    id="size">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-
-            <a class="btn btn-default btn-danger btn-block"
-               href="widget-list.view.client.html"
-               role="button">Delete</a>
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
         </div>
 
-        <nav class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container-fluid">
-                <div class="navbar-text pull-right">
-                    <a href="../../index.html" class="piy-glyphicon">
-                        <span class="glyphicon glyphicon-home"></span>
-                    </a>
-                </div>
-            </div>
-        </nav>
+        <label for="name">Name</label>
+        <input name="name"
+               class="form-control"
+               placeholder="Header"
+               ng-model="model.widget.name"
+               id="name"/>
+
+        <label for="text">Text</label>
+        <textarea name="text"
+                  ng-model="model.widget.text"
+                  rows="5"
+                  class="form-control"
+                  placeholder="Text"
+                  id="text"></textarea>
+
+        <label for="size">Size</label>
+        <select name="size"
+                ng-model="model.widget.size"
+                class="form-control piy-margin-bottom"
+                id="size">
+            <option selected value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <a class="btn btn-default btn-danger btn-block"
+           ng-click="model.deleteWidget(model.widget)"
+           role="button">Delete</a>
     </div>
-</body>
-</html>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a href="#!/profile/{{model.userId}}" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-home"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>

@@ -1,160 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Widgets List</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          rel="stylesheet"/>
-    <link href="../../css/styles.css"
-          rel="stylesheet"/>
-</head>
-<body class="piy piy-body">
-    <div class="piy piy-widget">
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-text pull-left">
-                    <a href="../../pages/templates/page-list.view.client.html" class="piy-glyphicon">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                </div>
-                <div class="navbar-text pull-right">
-                    <a href="widget-choose.view.client.html" class="piy-glyphicon">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                </div>
-                <div class="navbar-header">
-                    <a class="navbar-brand">Widget</a>
-                </div>
+<div class="piy piy-body piy-widget">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-left">
+                <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
             </div>
-        </nav>
+            <div class="navbar-text pull-right">
+                <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/new" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand">Widget</a>
+            </div>
+        </div>
+    </nav>
 
-        <div class="container-fluid piy-split-view">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="piy-widget-header piy-margin-bottom">
-                        GIZMODO
+    <div class="container-fluid piy-split-view">
+        <div ng-repeat="widget in model.widgets">
+            <div ng-switch="widget.widgetType">
+                <div ng-switch-when="HEADING">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="piy-margin-bottom">
+                                <div ng-switch="widget.size">
+                                    <div ng-switch-when="1">
+                                        <h1>{{widget.text}}</h1>
+                                    </div>
+                                    <div ng-switch-when="2">
+                                        <h2>{{widget.text}}</h2>
+                                    </div>
+                                    <div ng-switch-when="3">
+                                        <h3>{{widget.text}}</h3>
+                                    </div>
+                                    <div ng-switch-when="4">
+                                        <h4>{{widget.text}}</h4>
+                                    </div>
+                                    <div ng-switch-when="5">
+                                        <h5>{{widget.text}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 piy-glyphicon-split">
+                            <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
+                                <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
+                                <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-xs-12 piy-glyphicon-split">
-                    <a href="#">
-                        <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
-                        <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="piy-para-header piy-margin-bottom">
-                        US Senate Reaches Compromise on Emergency Zika Funding
-                    </div>
-                </div>
-                <div class="col-xs-12 piy-glyphicon-split">
-                    <a href="widget-heading.view.client.html">
-                        <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
-                        <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12
+                <div ng-switch-when="IMAGE">
+                    <div class="row">
+                        <div class="col-xs-12
                             col-sm-10 col-sm-offset-1
                             col-md-8 col-md-offset-2
                             col-lg-6 col-lg-offset-3">
-                    <img src="https://cbspittsburgh.files.wordpress.com/2016/02/zika-virus-web.jpg?w=1024"
-                         class="img-responsive piy-margin-bottom piy-image"
-                         alt="Responsive image">
-                </div>
-                <div class="col-xs-12 piy-glyphicon-split">
-                    <a href="widget-image.view.client.html">
-                        <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
-                        <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12">
-                    <p class="piy-margin-bottom piy-paragraph">
-                        Zika virus disease is now a nationally notifiable condition. Cases are reported to CDC by state, territorial, and local health departments using standard case definitions. This data contains provisional data reported to ArboNET for January 1, 2017 – June 21, 2017. Data are for laboratory-confirmed symptomatic Zika virus disease cases and viremic blood donors.
-                        <mark>Of the 140 total symptomatic Zika cases reported in the United States, 139 cases were acquired by travelers returning from affected areas</mark>, 0 cases were acquired through presumed local mosquito borne transmission, and 1 case was acquired through other routes (e.g., sexual, laboratory, or blood borne transmission).
-                    </p>
-                </div>
-                <div class="col-xs-12 piy-glyphicon-split">
-                    <a href="#">
-                        <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
-                        <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="piy-para-header piy-margin-bottom">
-                        Man in wingsuit flies straight through a ring of fire
+                            <img src="{{widget.url}}"
+                                 width="{{widget.width}}"
+                                 class="img-responsive piy-margin-bottom piy-image"
+                                 alt="Responsive image">
+                        </div>
+                        <div class="col-xs-12 piy-glyphicon-split">
+                            <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
+                                <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
+                                <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-xs-12 piy-glyphicon-split">
-                    <a href="widget-heading.view.client.html">
-                        <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
-                        <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12
+                <div ng-switch-when="YOUTUBE">
+                    <div class="row">
+                        <div class="col-xs-12
                             col-sm-10 col-sm-offset-1
                             col-md-8 col-md-offset-2
                             col-lg-6 col-lg-offset-3
                             video-container piy-margin-bottom">
-                    <iframe src="https://www.youtube.com/embed/uLWLashCXHE"
-                            frameborder="0"
-                            allowfullscreen
-                            class="center-block video-container-iframe"></iframe>
+                            <iframe src="https://www.youtube.com/embed/uLWLashCXHE"
+                                    width="{{widget.width}}"
+                                    frameborder="0"
+                                    allowfullscreen
+                                    class="center-block video-container-iframe"></iframe>
+                        </div>
+                        <div class="col-xs-12 piy-glyphicon-split">
+                            <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
+                                <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
+                                <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-xs-12 piy-glyphicon-split">
-                    <a href="widget-youtube.view.client.html">
-                        <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
-                        <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12">
-                    <p class="piy-margin-bottom piy-paragraph">
-                        Flying in a wingsuit? That’s just not enough anymore. Anyone could do that (I would never do that). You have to make it more extreme, like by hitting a target while you’re cutting through the air at crazy speeds. Or by making that target a small ring that you have to somehow fly through. Or by lighting that ring on fire. Or by... actually, that should be extreme enough for now.
-                    </p>
-                </div>
-                <div class="col-xs-12 piy-glyphicon-split">
-                    <a href="#">
-                        <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
-                        <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
-                    </a>
+                <div ng-switch-when="HTML">
+                    <div class="row">
+                        <div class="col-xs-12 piy-margin-bottom piy-paragraph">
+                            {{widget.text}}
+                        </div>
+                        <div class="col-xs-12 piy-glyphicon-split">
+                            <a>
+                                <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
+                                <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <nav class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container-fluid">
-                <div class="navbar-text pull-left">
-                    <a class="piy-glyphicon">
-                        <span class="glyphicon glyphicon-play"></span>
-                    </a>
-                    <a class="piy-glyphicon">
-                        <span class="glyphicon glyphicon-eye-open"></span>
-                    </a>
-                </div>
-                <div class="navbar-text pull-right">
-                    <a href="../../index.html" class="piy-glyphicon">
-                        <span class="glyphicon glyphicon-home"></span>
-                    </a>
-                </div>
-            </div>
-        </nav>
     </div>
-</body>
-</html>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-left">
+                <a class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-play"></span>
+                </a>
+                <a class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                </a>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="#!/profile/{{model.userId}}" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
