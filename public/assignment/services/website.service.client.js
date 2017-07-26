@@ -54,7 +54,7 @@
 
         this.findWebsitesByUser = findWebsitesByUser;
         this.findWebsiteByName = findWebsiteByName;
-        this.addWebsite = addWebsite;
+        this.createWebsite = createWebsite;
         this.findWebsiteById = findWebsiteById;
         this.updateWebsite = updateWebsite;
         this.deleteWebsite = deleteWebsite;
@@ -78,7 +78,7 @@
             return false;
         }
 
-        function addWebsite(website, userId) {
+        function createWebsite(website, userId) {
             website._id = (new Date()).getTime() + "";
             website.developerId = userId;
             websites.push(website);
@@ -87,7 +87,7 @@
         function findWebsiteById(wid, userId) {
             for(var w in websites) {
                 if(websites[w].developerId === userId && websites[w]._id === wid) {
-                    return websites[w];
+                    return angular.copy(websites[w]);
                 }
             }
         }

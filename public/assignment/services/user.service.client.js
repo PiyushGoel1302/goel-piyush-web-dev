@@ -43,15 +43,15 @@
         ];
 
         return {
-            "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
+            "findUserByCredentials": findUserByCredentials,
             "findUserByUserId": findUserByUserId,
-            "registerUser": registerUser,
+            "createUser": createUser,
             "findUserByUsername": findUserByUsername,
             "updateUser": updateUser,
-            "unregister": unregister
+            "deleteUser": deleteUser
         };
 
-        function findUserByUsernameAndPassword(username, password) {
+        function findUserByCredentials(username, password) {
             for (var u in users) {
                 var user = users[u];
                 if (user.username === username && user.password === password) {
@@ -70,7 +70,7 @@
             return null;
         }
 
-        function registerUser(user) {
+        function createUser(user) {
             user._id = (new Date()).getTime() + "";
             users.push(user);
             return user;
@@ -95,7 +95,7 @@
             return null;
         }
 
-        function unregister(userId) {
+        function deleteUser(userId) {
             for(var u in users) {
                 if(users[u]._id === userId) {
                     delete users[u];

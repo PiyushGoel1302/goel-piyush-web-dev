@@ -1,4 +1,4 @@
-<div class="piy piy-body piy-widgetheader">
+<div class="piy piy-body piy-widgetyoutube">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-text pull-left">
@@ -25,30 +25,32 @@
 
         <label for="name">Name</label>
         <input name="name"
-               class="form-control"
-               placeholder="Header"
                ng-model="model.widget.name"
+               class="form-control"
+               placeholder="Name"
                id="name"/>
 
         <label for="text">Text</label>
         <textarea name="text"
                   ng-model="model.widget.text"
-                  rows="5"
+                  rows="3"
                   class="form-control"
                   placeholder="Text"
                   id="text"></textarea>
 
-        <label for="size">Size</label>
-        <select name="size"
-                ng-model="model.widget.size"
-                class="form-control piy-margin-bottom"
-                id="size">
-            <option selected value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+        <label for="url">URL</label>
+        <input name="url"
+               ng-model="model.widget.url"
+               class="form-control"
+               placeholder="URL"
+               id="url"/>
+
+        <label for="width">Width</label>
+        <input name="width"
+               ng-model="model.widget.width"
+               class="form-control"
+               placeholder="100%"
+               id="width"/>
 
         <a class="btn btn-default btn-danger btn-block"
            ng-click="model.deleteWidget(model.widget)"
@@ -59,7 +61,7 @@
         <div class="container-fluid">
             <div class="navbar-text pull-right">
                 <a href="#!/profile/{{model.userId}}" class="piy-glyphicon">
-                    <span class="glyphicon glyphicon-home"></span>
+                    <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
         </div>

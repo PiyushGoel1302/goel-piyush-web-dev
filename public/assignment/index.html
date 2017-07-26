@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="WamApp">
+<html lang="en" ng-app="WamApp" class="ng-scope">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -8,18 +8,18 @@
     <script src="../vendor/angular/angular-route.js"></script>
     <script src="app.js"></script>
     <script src="config.js"></script>
-    <script src="users/controllers/login.controller.client.js"></script>
-    <script src="users/controllers/profile.controller.client.js"></script>
-    <script src="users/controllers/register.controller.client.js"></script>
-    <script src="websites/controllers/website-list.controller.client.js"></script>
-    <script src="websites/controllers/website-new.controller.client.js"></script>
-    <script src="websites/controllers/website-edit.controller.client.js"></script>
-    <script src="pages/controllers/page-list.controller.client.js"></script>
-    <script src="pages/controllers/page-new.controller.client.js"></script>
-    <script src="pages/controllers/page-edit.controller.client.js"></script>
-    <script src="widgets/controllers/widget-list.controller.client.js"></script>
-    <script src="widgets/controllers/widget-edit.controller.client.js"></script>
-    <script src="widgets/controllers/widget-chooser.controller.client.js"></script>
+    <script src="views/users/controllers/login.controller.client.js"></script>
+    <script src="views/users/controllers/profile.controller.client.js"></script>
+    <script src="views/users/controllers/register.controller.client.js"></script>
+    <script src="views/websites/controllers/website-list.controller.client.js"></script>
+    <script src="views/websites/controllers/website-new.controller.client.js"></script>
+    <script src="views/websites/controllers/website-edit.controller.client.js"></script>
+    <script src="views/pages/controllers/page-list.controller.client.js"></script>
+    <script src="views/pages/controllers/page-new.controller.client.js"></script>
+    <script src="views/pages/controllers/page-edit.controller.client.js"></script>
+    <script src="views/widgets/controllers/widget-list.controller.client.js"></script>
+    <script src="views/widgets/controllers/widget-edit.controller.client.js"></script>
+    <script src="views/widgets/controllers/widget-chooser.controller.client.js"></script>
 
     <script src="services/user.service.client.js"></script>
     <script src="services/website.service.client.js"></script>
@@ -32,6 +32,6 @@
           rel="stylesheet"/>
 </head>
 <body>
-    <div ng-view></div>
+    <div ng-view class="ng-scope"></div>
 </body>
 </html>

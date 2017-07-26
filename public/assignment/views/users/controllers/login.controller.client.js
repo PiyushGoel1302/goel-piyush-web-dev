@@ -21,7 +21,7 @@
                 model.errorMessage = "Enter username and password";
                 return;
             }
-            user = userService.findUserByUsernameAndPassword(user.username, user.password);
+            user = userService.findUserByCredentials(user.username, user.password);
             if(user === null) {
                 model.errorMessage = "Invalid username and password!!!";
             } else {

@@ -47,7 +47,7 @@
                 widgetType: "YOUTUBE",
                 pageId: "321",
                 width: "100%",
-                url: "https://www.youtube.com/embed/uLWLashCXHE"
+                url: "https://youtu.be/AM2Ivdi9c4E"
             },
             {
                 _id: "789",

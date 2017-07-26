@@ -10,21 +10,21 @@
         var model = this;
         model.userId = $routeParams.userId;
 
-        model.addNewWebsite = addNewWebsite;
+        model.createWebsite = createWebsite;
 
         function init() {
             model.websites = websiteService.findWebsitesByUser(model.userId);
         }
         init();
 
-        function addNewWebsite(website) {
+        function createWebsite(website) {
             if(!website || !website.name) {
                 model.errorMessage = "Enter the name of website";
                 return;
             }
             var website_name = websiteService.findWebsiteByName(website.name, model.userId);
             if(!website_name) {
-                websiteService.addWebsite(website, model.userId);
+                websiteService.createWebsite(website, model.userId);
                 $location.url("/user/" + model.userId + "/website");
             } else {
                 model.errorMessage = "Website already exists!!!";
