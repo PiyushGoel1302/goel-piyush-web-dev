@@ -14,17 +14,25 @@
         model.deleteUser = deleteUser;
 
         function init() {
-            model.user = userService.findUserByUserId(userId);
+            userService.findUserByUserId(userId)
+                .then(function (response) {
+                    model.user = response.data;
+                });
         }
         init();
 
         function updateUser(user) {
-            model.user = userService.updateUser(user._id, user);
+            userService.updateUser(user._id, user)
+                .then(function (response) {
+                    model.user = response.data;
+                });
         }
 
         function deleteUser(user) {
-            userService.deleteUser(user._id);
-            $location.url("login/");
+            userService.deleteUser(user._id)
+                .then(function (response) {
+                    $location.url("login/");
+                });
         }
     }
 })();

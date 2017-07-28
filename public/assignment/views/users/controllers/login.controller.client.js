@@ -6,13 +6,13 @@
         .module("WamApp")
         .controller("loginController", loginController);
 
-    function loginController($location, userService) {
+    function loginController($location, userService, $rootScope) {
         var model = this;
 
         model.login = login;
 
         function init() {
-
+            $rootScope.title = "Login";
         }
         init();
 
@@ -21,12 +21,16 @@
                 model.errorMessage = "Enter username and password";
                 return;
             }
-            user = userService.findUserByCredentials(user.username, user.password);
-            if(user === null) {
-                model.errorMessage = "Invalid username and password!!!";
-            } else {
-                $location.url("profile/" + user._id);
-            }
+            userService.findUserByCredentials(user.username, user.password)
+                .then(function (response) {
+                    _user = response.data;
+                    if(_user === "0") {
+                       model.errorMessage = "Invalid username and password!!!";
+                    } else {
+                        $rootScope.currentUser = _user;
+                        $location.url("profile/" + _user._id);
+                    }
+                });
         }
     }
 })();
