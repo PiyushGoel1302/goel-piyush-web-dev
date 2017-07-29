@@ -42,7 +42,6 @@ var users = [
     }
 ];
 
-// html handlers
 app.get("/api/user", getUser);
 app.get("/api/user/:userId", getUserById);
 app.post("/api/user", createUser);
@@ -97,7 +96,7 @@ function updateUser(req, res) {
         if(users[u]._id === userId) {
             users[u] = user;
             res.send(users[u]);
-            return
+            return;
         }
     }
     res.send("0");

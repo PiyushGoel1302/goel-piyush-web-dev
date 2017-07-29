@@ -13,7 +13,10 @@
         model.createWebsite = createWebsite;
 
         function init() {
-            model.websites = websiteService.findWebsitesByUser(model.userId);
+            websiteService.findWebsitesByUser(model.userId)
+                .then(function (response) {
+                    model.websites = response.data;
+                });
         }
         init();
 
@@ -22,13 +25,18 @@
                 model.errorMessage = "Enter the name of website";
                 return;
             }
-            var website_name = websiteService.findWebsiteByName(website.name, model.userId);
-            if(!website_name) {
-                websiteService.createWebsite(website, model.userId);
-                $location.url("/user/" + model.userId + "/website");
-            } else {
-                model.errorMessage = "Website already exists!!!";
-            }
+            websiteService.findWebsiteByName(website.name, model.userId)
+                .then(function (response) {
+                    var website_name = response.data;
+                    if(website_name === "0") {
+                        websiteService.createWebsite(website, model.userId)
+                            .then(function (response) {
+                                $location.url("/user/" + model.userId + "/website");
+                            });
+                    } else {
+                        model.errorMessage = "Website already exists!!!";
+                    }
+                });
         }
     }
 })();

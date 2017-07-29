@@ -17,23 +17,33 @@
         model.deletePage = deletePage;
 
         function init() {
-            model.pages = pageService.findPageByWebsiteId(model.wid);
-            model.page = pageService.findPageById(model.pid, model.wid);
+            pageService.findPageByWebsiteId(model.wid)
+                .then(function (response) {
+                    model.pages = response.data;
+                });
+            pageService.findPageById(model.pid)
+                .then(function (response) {
+                    model.page = response.data;
+                });
         }
         init();
 
         function updatePage(page) {
             if(page.name) {
-                pageService.updatePage(page, model.wid);
-                $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
+                pageService.updatePage(page)
+                    .then(function (response) {
+                        $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
+                    });
             } else {
                 model.errorMessage = "Enter the name of page";
             }
         }
 
         function deletePage(page) {
-            pageService.deletePage(page, model.wid);
-            $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
+            pageService.deletePage(page)
+                .then(function (response) {
+                    $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
+                });
         }
     }
 })();

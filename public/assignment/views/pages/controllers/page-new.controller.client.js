@@ -15,7 +15,10 @@
         model.addNewPage = addNewPage;
 
         function init() {
-            model.pages = pageService.findPageByWebsiteId(model.wid);
+            pageService.findPageByWebsiteId(model.wid)
+                .then(function (response) {
+                    model.pages = response.data;
+                });
         }
         init();
 
@@ -24,13 +27,18 @@
                 model.errorMessage = "Enter the name of page";
                 return;
             }
-            var page_name = pageService.findPageByName(page.name, model.wid);
-            if(!page_name) {
-                pageService.createPage(page, model.wid);
-                $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
-            } else {
-                model.errorMessage = "Page already exists!!!";
-            }
+            var page_name = pageService.findPageByName(page.name, model.wid)
+                .then(function (response) {
+                    var page_name = response.data;
+                    if(page_name === "0") {
+                        pageService.createPage(page, model.wid)
+                            .then(function (response) {
+                                $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
+                            });
+                    } else {
+                        model.errorMessage = "Page already exists!!!";
+                    }
+                });
         }
     }
 })();

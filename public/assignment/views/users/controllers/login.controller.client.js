@@ -12,7 +12,7 @@
         model.login = login;
 
         function init() {
-            $rootScope.title = "Login";
+            // $rootScope.title = "Login";
         }
         init();
 
@@ -27,7 +27,7 @@
                     if(_user === "0") {
                        model.errorMessage = "Invalid username and password!!!";
                     } else {
-                        $rootScope.currentUser = _user;
+                        // $rootScope.currentUser = _user;
                         $location.url("profile/" + _user._id);
                     }
                 });

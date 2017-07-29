@@ -6,7 +6,7 @@
         .module("WamApp")
         .service("widgetService", widgetService);
 
-    function widgetService() {
+    function widgetService($http) {
         var widgets = [
             {
                 _id: "123",
@@ -63,45 +63,29 @@
         this.updateWidget = updateWidget;
         this.deleteWidget = deleteWidget;
 
-        function findWidgetsByPageId(pid) {
-            var _widgets = [];
-            for(var w in widgets) {
-                if(widgets[w].pageId === pid) {
-                    _widgets.push(widgets[w]);
-                }
-            }
-            return _widgets;
+        function findWidgetsByPageId(pageId) {
+            var url = "/api/page/" + pageId + "/widget";
+            return $http.get(url);
         }
 
-        function findWidgetById(wgid, pid) {
-            for(var w in widgets) {
-                if(widgets[w].pageId === pid && widgets[w]._id === wgid) {
-                    return widgets[w];
-                }
-            }
+        function findWidgetById(widgetId) {
+            var url = "/api/widget/" + widgetId;
+            return $http.get(url);
         }
 
-        function createWidget(widget, pid) {
-            widget._id = (new Date()).getTime() + "";
-            widget.pageId = pid;
-            widgets.push(widget);
-            return widget._id;
+        function createWidget(widget, pageId) {
+            var url = "/api/page/" + pageId + "/widget";
+            return $http.post(url, widget);
         }
 
-        function updateWidget(widget, pid) {
-            for(var w in widgets) {
-                if(widgets[w].pageId === pid && widgets[w]._id === widget._id) {
-                    widgets[w] = widget;
-                }
-            }
+        function updateWidget(widget) {
+            var url = "/api/widget/" + widget._id;
+            return $http.put(url, widget);
         }
 
-        function deleteWidget(widget, pid) {
-            for(var w in widgets) {
-                if(widgets[w].pageId === pid && widgets[w]._id === widget._id) {
-                    delete widgets[w];
-                }
-            }
+        function deleteWidget(widget) {
+            var url = "/api/widget/" + widget._id;
+            return $http.delete(url);
         }
     }
 })();

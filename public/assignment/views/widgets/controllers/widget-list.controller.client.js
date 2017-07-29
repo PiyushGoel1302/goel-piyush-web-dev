@@ -17,12 +17,15 @@
         model.trustHtmlContent = trustHtmlContent;
 
         function init() {
-            model.widgets = widgetService.findWidgetsByPageId(model.pid);
+            widgetService.findWidgetsByPageId(model.pid)
+                .then(function (response) {
+                    model.widgets = response.data;
+                });
         }
         init();
 
         function trustUrl(url) {
-            console.log($sce.trustAsResourceUrl(url));
+            // console.log($sce.trustAsResourceUrl(url));
             var youtubeUrl = "https://youtube.com/embed/";
             var urlParts = url.split("/");
             youtubeUrl += urlParts[urlParts.length - 1];

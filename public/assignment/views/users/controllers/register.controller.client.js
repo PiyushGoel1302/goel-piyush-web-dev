@@ -17,7 +17,7 @@
         init();
 
         function createUser(user) {
-            if(!user.username) {
+            if(!user) {
                 model.errorMessage = "Enter username and password to register";
                 return;
             }

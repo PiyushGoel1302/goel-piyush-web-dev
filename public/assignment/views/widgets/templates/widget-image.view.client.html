@@ -18,55 +18,56 @@
     </nav>
 
     <div class="container-fluid piy-split-view">
+        <form action="/api/upload"   method="post" enctype="multipart/form-data">
 
-        <div ng-show="model.errorMessage" class="alert alert-danger">
-            {{model.errorMessage}}
-        </div>
+            <div ng-show="model.errorMessage" class="alert alert-danger">
+                {{model.errorMessage}}
+            </div>
 
-        <label for="name">Name</label>
-        <input name="name"
-               class="form-control"
-               placeholder="Name"
-               ng-model="model.widget.name"
-               id="name"/>
+            <label for="name">Name</label>
+            <input name="name"
+                   class="form-control"
+                   placeholder="Name"
+                   ng-model="model.widget.name"
+                   id="name"/>
 
-        <label for="text">Text</label>
-        <textarea name="text"
-                  ng-model="model.widget.text"
-                  rows="3"
-                  class="form-control"
-                  placeholder="Text"
-                  id="text"></textarea>
+            <label for="text">Text</label>
+            <textarea name="text"
+                      ng-model="model.widget.text"
+                      rows="3"
+                      class="form-control"
+                      placeholder="Text"
+                      id="text"></textarea>
 
-        <label for="url">URL</label>
-        <input name="url"
-               ng-model="model.widget.url"
-               class="form-control"
-               placeholder="URL"
-               value="https://youtu.be/uLWLashCXHE"
-               id="url"/>
+            <label for="url">URL</label>
+            <input name="url"
+                   ng-model="model.widget.url"
+                   class="form-control"
+                   placeholder="URL"
+                   value="https://youtu.be/uLWLashCXHE"
+                   id="url"/>
 
-        <label for="width">Width</label>
-        <input name="width"
-               ng-model="model.widget.width"
-               class="form-control"
-               placeholder="Width"
-               value="100%"
-               id="width"/>
+            <label for="width">Width</label>
+            <input name="width"
+                   ng-model="model.widget.width"
+                   class="form-control"
+                   placeholder="Width"
+                   value="100%"
+                   id="width"/>
 
-        <label for="upload">Upload</label>
-        <input name="upload"
-               type="file"
-               class="form-control"
-               id="upload"/>
+            <label>Upload</label>
+            <input  name="myFile"    type="file" class="form-control"/>
+            <input  name="width"     value="{{model.widget.width}}" style="display: none"/>
+            <input  name="userId"    value="{{model.userId}}"   style="display: none"/>
+            <input  name="websiteId" value="{{model.wid}}"   style="display: none"/>
+            <input  name="pageId"    value="{{model.pid}}"   style="display: none"/>
+            <input  name="widgetId"  value="{{model.widget._id}}"   style="display: none"/>
+            <button type="submit" class="btn btn-block btn-primary">Upload Image</button>
 
-        <a class="btn btn-default btn-primary btn-block"
-           href="#"
-           role="button">Upload Image</a>
-
-        <a class="btn btn-default btn-danger btn-block"
-           ng-click="model.deleteWidget(model.widget)"
-           role="button">Delete</a>
+            <a class="btn btn-danger btn-block"
+               ng-click="model.deleteWidget(model.widget)"
+               role="button">Delete</a>
+        </form>
     </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">

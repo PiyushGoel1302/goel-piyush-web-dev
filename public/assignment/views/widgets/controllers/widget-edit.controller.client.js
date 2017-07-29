@@ -18,8 +18,14 @@
         model.deleteWidget = deleteWidget;
 
         function init() {
-            model.widgets = widgetService.findWidgetsByPageId(model.pid);
-            model.widget = widgetService.findWidgetById(model.wgid, model.pid);
+            widgetService.findWidgetsByPageId(model.pid)
+                .then(function (response) {
+                    model.widgets = response.data;
+                });
+            widgetService.findWidgetById(model.wgid)
+                .then(function (response) {
+                    model.widget = response.data;
+                });
         }
         init();
 
@@ -34,14 +40,18 @@
                 model.errorMessage = "Enter the url of the video";
                 return;
             } else {
-                widgetService.updateWidget(widget, model.pid);
-                $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
+                widgetService.updateWidget(widget)
+                    .then(function (response) {
+                        $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
+                    });
             }
         }
 
         function deleteWidget(widget) {
-            widgetService.deleteWidget(widget, model.pid);
-            $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
+            widgetService.deleteWidget(widget)
+                .then(function (response) {
+                    $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
+                });
         }
     }
 })();

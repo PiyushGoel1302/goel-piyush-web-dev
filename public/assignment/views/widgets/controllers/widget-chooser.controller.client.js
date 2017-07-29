@@ -16,14 +16,20 @@
         model.createWidget = createWidget;
 
         function init() {
-            model.widgets = widgetService.findWidgetsByPageId(model.pid);
+            widgetService.findWidgetsByPageId(model.pid)
+                .then(function (response) {
+                    model.widgets = response.data;
+                });
         }
         init();
 
         function createWidget(type) {
             var widget = {widgetType: type};
-            var widgetId = widgetService.createWidget(widget, model.pid);
-            $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget/" + widgetId);
+            widgetService.createWidget(widget, model.pid)
+                .then(function (response) {
+                    var widgetId = response.data;
+                    $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget/" + widgetId);
+                });
         }
     }
 })();

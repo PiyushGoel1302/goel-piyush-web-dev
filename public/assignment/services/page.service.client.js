@@ -6,27 +6,7 @@
         .module("WamApp")
         .service("pageService", pageService);
 
-    function pageService() {
-        var pages = [
-                {
-                    _id: "321",
-                    name: "Post 1",
-                    websiteId: "456",
-                    description: "Lorem"
-                },
-                {
-                    _id: "432",
-                    name: "Post 2",
-                    websiteId: "456",
-                    description: "Lorem"
-                },
-                {
-                    _id: "543",
-                    name: "Post 3",
-                    websiteId: "456",
-                    description: "Lorem"
-                }
-            ];
+    function pageService($http) {
 
         this.findPageByWebsiteId = findPageByWebsiteId;
         this.findPageByName = findPageByName;
@@ -35,53 +15,34 @@
         this.updatePage = updatePage;
         this.deletePage = deletePage;
 
-        function findPageByWebsiteId(wid) {
-            var _pages = [];
-            for(var p in pages) {
-                if(pages[p].websiteId === wid) {
-                    _pages.push(pages[p]);
-                }
-            }
-            return _pages;
+        function findPageByWebsiteId(websiteId) {
+            var url = "/api/website/" + websiteId + "/page";
+            return $http.get(url);
         }
 
-        function findPageByName(name, wid) {
-            for(var p in pages) {
-                if(pages[p].websiteId === wid && pages[p].name === name) {
-                    return pages[p].name;
-                }
-            }
-            return false;
+        function findPageByName(pagename, websiteId) {
+            var url = "/api/website/" + websiteId + "/page?pagename=" + pagename;
+            return $http.get(url);
         }
 
-        function createPage(page, wid) {
-            page._id = (new Date()).getTime() + "";
-            page.websiteId = wid;
-            pages.push(page);
+        function createPage(page, websiteId) {
+            var url = "/api/website/" + websiteId + "/page";
+            return $http.post(url, page);
         }
 
-        function findPageById(pid, wid) {
-            for(var p in pages) {
-                if(pages[p].websiteId === wid && pages[p]._id === pid) {
-                    return angular.copy(pages[p]);
-                }
-            }
+        function findPageById(pageId) {
+            var url = "/api/page/" + pageId;
+            return $http.get(url);
         }
 
-        function updatePage(page, wid) {
-            for(var p in pages) {
-                if(pages[p].websiteId === wid && pages[p]._id === page._id) {
-                    pages[p] = page;
-                }
-            }
+        function updatePage(page) {
+            var url = "/api/page/" + page._id;
+            return $http.post(url, page);
         }
 
-        function deletePage(page, wid) {
-            for(var p in pages) {
-                if(pages[p].websiteId === wid && pages[p]._id === page._id) {
-                    delete pages[p];
-                }
-            }
+        function deletePage(page) {
+            var url = "/api/page/" + page._id;
+            return $http.delete(url);
         }
     }
 })();
