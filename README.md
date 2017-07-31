@@ -13,11 +13,11 @@ for my graduate-level course on Information Retrieval (CS 6200).
 This repository contains assignments and project for my graduate-level course on Web Development (CS 5610).
 
 Following are the links of my:
-Web Application: https://goel-piyush-webdev.herokuapp.com
-Project: https://goel-piyush-webdev.herokuapp.com/project/index.html
-Assignment: https://goel-piyush-webdev.herokuapp.com/assignment/
+1. Web Application: https://goel-piyush-webdev.herokuapp.com
+2. Project: https://goel-piyush-webdev.herokuapp.com/project/index.html
+3. Assignment: https://goel-piyush-webdev.herokuapp.com/assignment/
 
 Contact details:
-Phone Number: +1 (857) 544-4732
-E-mail: goel.p@husky.neu.edu
-LinkedIn: https://www.linkedin.com/in/piyush-goel-02/
+1. Phone Number: +1 (857) 544-4732
+2. E-mail: goel.p@husky.neu.edu
+3. LinkedIn: https://www.linkedin.com/in/piyush-goel-02/
