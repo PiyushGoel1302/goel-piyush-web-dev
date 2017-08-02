@@ -17,7 +17,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid piy-split-view">
+    <div class="container-fluid piy-split-view" id="widget-list" webdev-directive>
         <div ng-repeat="widget in model.widgets">
             <div ng-switch="widget.widgetType">
                 <div ng-switch-when="HEADING">
@@ -44,8 +44,10 @@
                             </div>
                         </div>
                         <div class="col-xs-12 piy-glyphicon-split">
+                            <a>
+                                <span class="glyphicon glyphicon-menu-hamburger pull-right piy-justify-glyphi handle-sorting"></span>
+                            </a>
                             <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
-                                <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
                                 <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
                             </a>
                         </div>
@@ -63,8 +65,10 @@
                                  alt="Responsive image">
                         </div>
                         <div class="col-xs-12 piy-glyphicon-split">
+                            <a>
+                                <span class="glyphicon glyphicon-menu-hamburger pull-right piy-justify-glyphi handle-sorting"></span>
+                            </a>
                             <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
-                                <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
                                 <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
                             </a>
                         </div>
@@ -84,8 +88,10 @@
                                     class="center-block video-container-iframe"></iframe>
                         </div>
                         <div class="col-xs-12 piy-glyphicon-split">
+                            <a>
+                                <span class="glyphicon glyphicon-menu-hamburger pull-right piy-justify-glyphi handle-sorting"></span>
+                            </a>
                             <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
-                                <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
                                 <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
                             </a>
                         </div>
@@ -98,7 +104,9 @@
                         </div>
                         <div class="col-xs-12 piy-glyphicon-split">
                             <a>
-                                <span class="glyphicon glyphicon-align-justify pull-right piy-justify-glyphi"></span>
+                                <span class="glyphicon glyphicon-menu-hamburger pull-right piy-justify-glyphi handle-sorting"></span>
+                            </a>
+                            <a>
                                 <span class="glyphicon glyphicon-cog pull-right piy-cog-glyphi"></span>
                             </a>
                         </div>

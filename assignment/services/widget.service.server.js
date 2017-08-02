@@ -61,6 +61,7 @@ app.get("/api/widget/:widgetId", findWidgetById);
 app.put("/api/widget/:widgetId", updateWidget);
 app.delete("/api/widget/:widgetId", deleteWidget);
 app.post ("/api/upload", upload.single('myFile'), uploadImage);
+app.put("/api/page/:pageId/widget", updateWidgetIndex);
 
 function findWidgetsByPageId(req, res) {
     var pageId = req.params.pageId;
@@ -145,4 +146,25 @@ function uploadImage(req, res) {
     var callbackUrl   = "/assignment/#!/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId;
 
     res.redirect(callbackUrl);
+}
+
+function updateWidgetIndex(req, res) {
+    var pageId = req.params.pageId;
+    var startIndex = req.query.initial;
+    var endIndex = req.query.final;
+    var _widgets = [];
+    for(var w in widgets){
+        if(widgets[w].pageId === pageId){
+            _widgets.push(widgets[w]);
+        }
+    }
+    for (var i = widgets.length - 1 ; i >= 0 ; i--) {
+        if (widgets[i].pageId === pageId) {
+            widgets.splice(i, 1);
+        }
+    }
+    var widget = _widgets.splice(startIndex, 1);
+    _widgets.splice(endIndex, 0, widget[0]);
+    widgets.push.apply(widgets, _widgets);
+    res.send("0");
 }

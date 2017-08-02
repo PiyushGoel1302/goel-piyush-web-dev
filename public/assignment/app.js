@@ -3,5 +3,5 @@
  */
 (function () {
     angular
-        .module("WamApp", ["ngRoute"]);
+        .module("WamApp", ["ngRoute", "webDevDirective"]);
 })();
