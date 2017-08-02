@@ -8,6 +8,10 @@
 
     function webdevDirective(widgetService) {
 
+        return {
+            link: linkFunction
+        };
+
         function linkFunction(scope, element) {
             var startIndex = -1;
             var endIndex = -1;
@@ -24,8 +28,5 @@
                     }
                 });
         }
-        return {
-            link: linkFunction
-        };
     }
 })();

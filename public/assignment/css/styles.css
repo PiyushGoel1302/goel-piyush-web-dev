@@ -69,13 +69,17 @@ input, textarea {
 
 .piy .piy-justify-glyphi {
     color: black;
-    font-size: 20px;
+    font-size: 15px;
     background-color: white;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .piy .piy-cog-glyphi {
-    font-size: 20px;
+    font-size: 15px;
     background-color: white;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
 
 .piy .piy-margin-bottom {
