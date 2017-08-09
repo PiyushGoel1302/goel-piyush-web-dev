@@ -77,7 +77,7 @@ function getUser(req, res) {
                 res.json(user);
                 return;
             }, function (err) {
-                res.sendStatus(404).send(err);
+                res.sendStatus(404).send("0");
                 return;
             });
         // for(var u in users) {
@@ -87,7 +87,6 @@ function getUser(req, res) {
         //     }
         // }
     }
-    res.send("0");
 }
 
 function getUserById(req, res) {
@@ -123,10 +122,12 @@ function updateUser(req, res) {
     var user = req.body;
     userModel
         .updateUser(userId, user)
-        .then(function (user) {
+        .then(function (status) {
             res.json(user);
+            return;
         }, function (err) {
             res.sendStatus(404).send(err);
+            return;
         });
     // for(var u in users) {
     //     if(users[u]._id === userId) {
@@ -144,8 +145,10 @@ function deleteUser(req, res) {
         .deleteUser(userId)
         .then(function (status) {
             res.json(status);
+            return;
         }, function (err) {
             res.sendStatus(404).send(err);
+            return;
         });
     // for(var u in users) {
     //     if(users[u]._id === userId) {

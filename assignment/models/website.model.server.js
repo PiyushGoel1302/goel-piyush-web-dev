@@ -21,7 +21,7 @@ function findWebsitesByName(name, userId) {
 
 function findAllWebsitesForUser(userId) {
     return websiteModel.find({_user: userId})
-        .populate('developer', 'username')
+        .populate('_user', 'username')
         .exec();
 }
 
