@@ -40,8 +40,8 @@
             return $http.put(url, website);
         }
 
-        function deleteWebsite(website) {
-            var url = "/api/website/" + website._id;
+        function deleteWebsite(website, userId) {
+            var url = "/api/user/" + userId + "/website/" + website._id;
             return $http.delete(url);
         }
     }

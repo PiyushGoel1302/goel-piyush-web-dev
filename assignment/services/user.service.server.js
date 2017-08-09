@@ -123,8 +123,8 @@ function updateUser(req, res) {
     var user = req.body;
     userModel
         .updateUser(userId, user)
-        .then(function (status) {
-            res.json(status);
+        .then(function (user) {
+            res.json(user);
         }, function (err) {
             res.sendStatus(404).send(err);
         });
