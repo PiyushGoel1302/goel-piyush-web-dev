@@ -48,7 +48,7 @@
         }
 
         function deleteWidget(widget) {
-            widgetService.deleteWidget(widget)
+            widgetService.deleteWidget(pid, widget)
                 .then(function (response) {
                     $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
                 });

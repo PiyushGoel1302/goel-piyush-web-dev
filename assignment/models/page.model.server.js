@@ -12,6 +12,7 @@ pageModel.createPage = createPage;
 pageModel.findPageById = findPageById;
 pageModel.updatePage = updatePage;
 pageModel.deletePage = deletePage;
+pageModel.removeWidget = removeWidget;
 
 module.exports = pageModel;
 
@@ -49,5 +50,15 @@ function deletePage(websiteId, pageId) {
         .remove({_id: pageId})
         .then(function (status) {
             return websiteModel.removePage(websiteId, pageId);
+        });
+}
+
+function removeWidget(pageId, widgetId) {
+    return pageModel
+        .findById(pageId)
+        .then(function (page) {
+            var index = page.widgets.indexOf(widgetId);
+            page.widgets.splice(index, 1);
+            return page.save();
         });
 }
