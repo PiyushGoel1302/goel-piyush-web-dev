@@ -12,6 +12,7 @@ pageModel.createPage = createPage;
 pageModel.findPageById = findPageById;
 pageModel.updatePage = updatePage;
 pageModel.deletePage = deletePage;
+pageModel.addWidget = addWidget;
 pageModel.removeWidget = removeWidget;
 
 module.exports = pageModel;
@@ -50,6 +51,15 @@ function deletePage(websiteId, pageId) {
         .remove({_id: pageId})
         .then(function (status) {
             return websiteModel.removePage(websiteId, pageId);
+        });
+}
+
+function addWidget(pageId, widgetId) {
+    return pageModel
+        .findById(pageId)
+        .then(function (page) {
+            page.widgets.push(widgetId);
+            return page.save();
         });
 }
 

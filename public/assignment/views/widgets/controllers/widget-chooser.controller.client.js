@@ -24,11 +24,11 @@
         init();
 
         function createWidget(type) {
-            var widget = {widgetType: type};
+            var widget = {type: type};
             widgetService.createWidget(widget, model.pid)
                 .then(function (response) {
-                    var widgetId = response.data;
-                    $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget/" + widgetId);
+                    var widget = response.data;
+                    $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget/" + widget._id);
                 });
         }
     }

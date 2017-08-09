@@ -29,7 +29,7 @@ function createWidget(pageId, widget) {
         })
         .then(function (pageDoc) {
             return widgetTmp;
-        })
+        });
 }
 
 function findWidgetById(widgetId) {

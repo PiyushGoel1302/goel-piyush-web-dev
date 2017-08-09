@@ -19,7 +19,7 @@
 
     <div class="container-fluid piy-split-view" id="widget-list" webdev-directive>
         <div ng-repeat="widget in model.widgets">
-            <div ng-switch="widget.widgetType">
+            <div ng-switch="widget.type">
                 <div ng-switch-when="HEADING">
                     <div class="row">
                         <div class="col-xs-12">

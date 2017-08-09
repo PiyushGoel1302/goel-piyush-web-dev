@@ -30,13 +30,13 @@
         init();
 
         function updateWidget(widget) {
-            if(widget.widgetType === "HEADING" && !widget.text) {
+            if(widget.type === "HEADING" && !widget.text) {
                 model.errorMessage = "Enter the text of the header";
                 return;
-            } else if(widget.widgetType === "IMAGE" && !widget.url) {
+            } else if(widget.type === "IMAGE" && !widget.url) {
                 model.errorMessage = "Enter the url of the image";
                 return;
-            } else if(widget.widgetType === "YOUTUBE" && !widget.url) {
+            } else if(widget.type === "YOUTUBE" && !widget.url) {
                 model.errorMessage = "Enter the url of the video";
                 return;
             } else {
@@ -48,7 +48,7 @@
         }
 
         function deleteWidget(widget) {
-            widgetService.deleteWidget(pid, widget)
+            widgetService.deleteWidget(model.pid, widget)
                 .then(function (response) {
                     $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
                 });
