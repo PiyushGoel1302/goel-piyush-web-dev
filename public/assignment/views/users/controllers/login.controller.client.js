@@ -24,7 +24,7 @@
             userService.findUserByCredentials(user.username, user.password)
                 .then(function (response) {
                     _user = response.data;
-                    if(_user === "0") {
+                    if(_user === null) {
                        model.errorMessage = "Invalid username and password!!!";
                     } else {
                         // $rootScope.currentUser = _user;

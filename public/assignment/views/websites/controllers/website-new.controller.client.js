@@ -28,7 +28,7 @@
             websiteService.findWebsiteByName(website.name, model.userId)
                 .then(function (response) {
                     var website_name = response.data;
-                    if(website_name === "0") {
+                    if(website_name === null) {
                         websiteService.createWebsite(website, model.userId)
                             .then(function (response) {
                                 $location.url("/user/" + model.userId + "/website");

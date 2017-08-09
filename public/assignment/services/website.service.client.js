@@ -20,8 +20,8 @@
             return $http.get(url);
         }
 
-        function findWebsiteByName(websitename, userId) {
-            var url = "/api/user/" + userId + "/website?websitename=" + websitename;
+        function findWebsiteByName(name, userId) {
+            var url = "/api/user/" + userId + "/website?websitename=" + name;
             return $http.get(url);
         }
 

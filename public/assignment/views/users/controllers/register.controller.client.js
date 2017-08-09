@@ -24,7 +24,7 @@
             userService.findUserByUsername(user.username)
                 .then(function (response) {
                     var _user = response.data;
-                    if (_user === "0") {
+                    if (_user === null) {
                         if (user.password === user.password2) {
                             userService.createUser(user)
                                 .then(function (response) {

@@ -30,7 +30,7 @@
             var page_name = pageService.findPageByName(page.name, model.wid)
                 .then(function (response) {
                     var page_name = response.data;
-                    if(page_name === "0") {
+                    if(page_name === null) {
                         pageService.createPage(page, model.wid)
                             .then(function (response) {
                                 $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");

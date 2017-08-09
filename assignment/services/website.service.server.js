@@ -64,9 +64,6 @@ function findWebsitesByName(req, res) {
             .then(function (website) {
                 res.json(website);
                 return;
-            }, function (err) {
-                res.sendStatus(404).send(err);
-                return;
             });
         // for(var w in websites) {
         //     if(websites[w].name === name && websites[w].developerId === userId) {

@@ -40,7 +40,7 @@
         }
 
         function deletePage(page) {
-            pageService.deletePage(page)
+            pageService.deletePage(page, model.wid)
                 .then(function (response) {
                     $location.url("/user/" + model.userId + "/website/" + model.wid + "/page");
                 });

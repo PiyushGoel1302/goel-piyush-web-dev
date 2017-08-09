@@ -40,8 +40,8 @@
             return $http.post(url, page);
         }
 
-        function deletePage(page) {
-            var url = "/api/page/" + page._id;
+        function deletePage(page, websiteId) {
+            var url = "/api/website/" + websiteId + "/page/" + page._id;
             return $http.delete(url);
         }
     }
