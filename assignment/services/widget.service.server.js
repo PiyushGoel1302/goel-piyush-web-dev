@@ -150,20 +150,20 @@ function deleteWidget(req, res) {
     // res.send("0");
 }
 
-function getWidgetById(widgetId) {
-    widgetModel.findWidgetById(widgetId)
-        .then(function (widget) {
-            return widget;
-        }, function (err) {
-            return null;
-        });
-    // for(var w in widgets){
-    //     if(widgets[w]._id === widgetId){
-    //         return widgets[w];
-    //     }
-    // }
-    // return null;
-}
+// function getWidgetById(widgetId) {
+//     widgetModel.findWidgetById(widgetId)
+//         .then(function (widget) {
+//             return widget;
+//         }, function (err) {
+//             return null;
+//         });
+//     // for(var w in widgets){
+//     //     if(widgets[w]._id === widgetId){
+//     //         return widgets[w];
+//     //     }
+//     // }
+//     // return null;
+// }
 
 function uploadImage(req, res) {
     var widgetId = req.body.widgetId;
@@ -181,8 +181,19 @@ function uploadImage(req, res) {
     var size          = myFile.size;
     var mimetype      = myFile.mimetype;
 
-    widget = getWidgetById(widgetId);
-    widget.url = '/uploads/'+filename;
+    // var widget = getWidgetById(widgetId);
+    var widget = null;
+    widgetModel
+        .findWidgetById(widgetId)
+        .then(function (response) {
+            widget = response;
+            widget.url = '/uploads/'+filename;
+            widgetModel
+                .updateWidget(widgetId, widget)
+                .then(function (widget) {
+                    console.log(widget);
+                });
+        });
 
     var callbackUrl   = "/assignment/#!/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId;
 

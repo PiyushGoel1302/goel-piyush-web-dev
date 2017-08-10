@@ -4,7 +4,6 @@
 var mongoose = require("mongoose");
 var widgetSchema = require("./widget.schema.server");
 var widgetModel = mongoose.model("WidgetModel", widgetSchema);
-var pageModel = require("./page.model.server");
 
 widgetModel.findAllPWidgetsForPage = findAllPWidgetsForPage;
 widgetModel.createWidget = createWidget;
@@ -14,9 +13,15 @@ widgetModel.deleteWidget = deleteWidget;
 widgetModel.reorderWidget = reorderWidget;
 
 module.exports = widgetModel;
+var pageModel = require("./page.model.server");
 
 function findAllPWidgetsForPage(pageId) {
-    return widgetModel.find({_page: pageId});
+    // return widgetModel.find({_page: pageId});
+    return pageModel
+        .findPageById(pageId)
+        .then(function (page) {
+            return page.widgets;
+        });
 }
 
 function createWidget(pageId, widget) {

@@ -4,7 +4,6 @@
 var mongoose = require("mongoose");
 var pageSchema = require("./page.schema.server");
 var pageModel = mongoose.model("PageModel", pageSchema);
-var websiteModel = require("./website.model.server");
 
 pageModel.findPageByWebsite = findPageByWebsite;
 pageModel.findAllPagesForWebsite = findAllPagesForWebsite;
@@ -16,13 +15,16 @@ pageModel.addWidget = addWidget;
 pageModel.removeWidget = removeWidget;
 
 module.exports = pageModel;
+var websiteModel = require("./website.model.server");
 
 function findPageByWebsite(name, websiteId) {
     return pageModel.findOne({name: name, _website: websiteId});
 }
 
 function findAllPagesForWebsite(websiteId) {
-    return pageModel.find({_website: websiteId});
+    return pageModel.find({_website: websiteId})
+        .populate('_websites')
+        .exec();
 }
 
 function createPage(websiteId, page) {
@@ -39,7 +41,9 @@ function createPage(websiteId, page) {
 }
 
 function findPageById(pageId) {
-    return pageModel.findById(pageId);
+    return pageModel.findById(pageId)
+        .populate('widgets')
+        .exec();
 }
 
 function updatePage(pageId, page) {

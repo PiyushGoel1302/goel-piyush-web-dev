@@ -30,21 +30,10 @@
         init();
 
         function updateWidget(widget) {
-            if(widget.type === "HEADING" && !widget.text) {
-                model.errorMessage = "Enter the text of the header";
-                return;
-            } else if(widget.type === "IMAGE" && !widget.url) {
-                model.errorMessage = "Enter the url of the image";
-                return;
-            } else if(widget.type === "YOUTUBE" && !widget.url) {
-                model.errorMessage = "Enter the url of the video";
-                return;
-            } else {
-                widgetService.updateWidget(widget)
-                    .then(function (response) {
-                        $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
-                    });
-            }
+            widgetService.updateWidget(widget)
+                .then(function (response) {
+                    $location.url("/user/" + model.userId + "/website/" + model.wid + "/page/" + model.pid + "/widget");
+                });
         }
 
         function deleteWidget(widget) {

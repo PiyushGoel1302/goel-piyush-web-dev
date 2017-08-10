@@ -4,7 +4,6 @@
 var mongoose = require("mongoose");
 var websiteSchema = require("./website.schema.server");
 var websiteModel = mongoose.model("WebsiteModel", websiteSchema);
-var userModel = require("./user.model.server");
 
 websiteModel.findWebsitesByName = findWebsitesByName;
 websiteModel.findAllWebsitesForUser = findAllWebsitesForUser;
@@ -16,6 +15,7 @@ websiteModel.addPage = addPage;
 websiteModel.removePage = removePage;
 
 module.exports = websiteModel;
+var userModel = require("./user.model.server");
 
 function findWebsitesByName(name, userId) {
     return websiteModel.findOne({name: name, _user: userId});
@@ -23,7 +23,7 @@ function findWebsitesByName(name, userId) {
 
 function findAllWebsitesForUser(userId) {
     return websiteModel.find({_user: userId})
-        .populate('_user', 'username')
+        .populate('_user')
         .exec();
 }
 

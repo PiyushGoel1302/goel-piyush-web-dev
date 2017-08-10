@@ -1,0 +1,79 @@
+<div class="piy piy-body piy-widgettext">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-left">
+                <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+            <div class="navbar-text pull-right">
+                <a ng-click="model.updateWidget(model.widget)" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand">Widget Edit</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid piy-split-view">
+
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+
+        <label for="name">Name</label>
+        <input name="name"
+               class="form-control"
+               placeholder="Name"
+               ng-model="model.widget.name"
+               id="name"/>
+
+        <label for="text">Text</label>
+        <input name="text"
+               class="form-control"
+               placeholder="Text"
+               ng-model="model.widget.text"
+               id="text"/>
+
+        <label for="rows">Rows</label>
+        <input name="rows"
+               type="number"
+               class="form-control"
+               placeholder="Rows"
+               ng-model="model.widget.rows"
+               id="rows"/>
+
+        <label for="placeholder">Placeholder</label>
+        <input name="placeholder"
+               class="form-control"
+               placeholder="Placeholder"
+               ng-model="model.widget.placeholder"
+               id="placeholder"/>
+
+        <div class="form-control form-group">
+            <label>
+                Formatted
+                <input name="formatted"
+                       type="checkbox"
+                       ng-model="model.widget.formatted"
+                       id="formatted"/>
+            </label>
+        </div>
+
+        <a class="btn btn-default btn-danger btn-block"
+           ng-click="model.deleteWidget(model.widget)"
+           role="button">Delete</a>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a href="#!/profile/{{model.userId}}" class="piy-glyphicon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>

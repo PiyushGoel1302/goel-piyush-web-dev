@@ -64,6 +64,10 @@
             <input  name="widgetId"  value="{{model.widget._id}}"   style="display: none"/>
             <button type="submit" class="btn btn-block btn-primary">Upload Image</button>
 
+            <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{model.widget._id}}/search"
+               class="btn btn-success btn-block"
+               role="button">Search Image</a>
+
             <a class="btn btn-danger btn-block"
                ng-click="model.deleteWidget(model.widget)"
                role="button">Delete</a>
