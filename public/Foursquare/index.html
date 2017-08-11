@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="poc" class="ng-scope">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{{title}}</title>
+
+    <script src="../vendor/angular/angular.js"></script>
+    <script src="../vendor/angular/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="views/controllers/search.controller.client.js"></script>
+    <script src="views/controllers/details.controller.client.js"></script>
+    <script src="services/poc.service.client.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet"/>
+</head>
+<body>
+    <div ng-view class="ng-scope">
+    </div>
+</body>
+</html>

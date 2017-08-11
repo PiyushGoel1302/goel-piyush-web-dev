@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <h1>Proof of Concept</h1>
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Search for place</h2>
+            <input type="text" placeholder="Enter place" ng-model="model.place" class="form-control form-group">
+            <a class="btn btn-primary btn-block form-control" ng-click="model.searchPlace(model.place)">Search</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div ng-show="model.result"><h2>Results:</h2></div>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="val in model.result.response.venues">
+                    <a href="#!/venue/{{val.id}}">{{val.name}}</a> at {{val.location.formattedAddress}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
