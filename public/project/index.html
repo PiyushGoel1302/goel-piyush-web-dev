@@ -1,10 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="TravelMate" class="ng-scope">
 <head>
     <meta charset="UTF-8">
-    <title>Project Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>TravelMate</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!-- Bootstrap CSS
+================================================== -->
+    <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+
+    <!-- Animate CSS
+   ================================================== -->
+    <link rel="stylesheet" href="vendor/css/animate.min.css">
+
+    <!-- Font Icons
+   ================================================== -->
+    <link rel="stylesheet" href="vendor/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/css/et-line-font.css">
+
+    <!-- Nivo Lightbox CSS
+   ================================================== -->
+    <link rel="stylesheet" href="vendor/css/nivo-lightbox.css">
+    <link rel="stylesheet" href="vendor/css/nivo_themes/default/default.css">
+
+    <!-- Owl Carousel CSS
+   ================================================== -->
+    <link rel="stylesheet" href="vendor/css/owl.theme.css">
+    <link rel="stylesheet" href="vendor/css/owl.carousel.css">
+
+    <!-- BxSlider CSS
+   ================================================== -->
+    <link rel="stylesheet" href="vendor/css/bxslider.css">
+
+    <!-- Main CSS
+    ================================================== -->
+    <link rel="stylesheet" href="vendor/css/style.css">
+
+    <!-- Google web font
+   ================================================== -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'>
+
+    <script src="vendor/js/jquery.js"></script>
+    <script src="vendor/js/bootstrap.min.js"></script>
+    <script src="vendor/js/smoothscroll.js"></script>
+    <script src="vendor/js/nivo-lightbox.min.js"></script>
+    <script src="vendor/js/jquery.easing-1.3.js"></script>
+    <script src="vendor/js/plugins.js"></script>
+    <script src="vendor/js/owl.carousel.min.js"></script>
+    <script src="vendor/js/jquery.parallax.js"></script>
+    <script src="vendor/js/wow.min.js"></script>
+    <script src="vendor/js/custom.js"></script>
+    <script src="vendor/js/angular.js"></script>
+    <script src="vendor/js/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+
+    <!--Controllers-->
+    <script src="views/home/controllers/search.controller.client.js"></script>
+    <script src="views/home/controllers/details.controller.client.js"></script>
+    <script src="views/user/controllers/login.controller.client.js"></script>
+    <script src="views/user/controllers/profile.controller.client.js"></script>
+    <script src="views/user/controllers/register.controller.client.js"></script>
+    <script src="views/place/controllers/place.controller.client.js"></script>
+    <script src="views/wishlist/controllers/wish-list.controller.client.js"></script>
+    <script src="views/host-search/controllers/host-search.controller.client.js"></script>
+    <script src="views/follow/controllers/followers.controller.client.js"></script>
+    <script src="views/follow/controllers/following.controller.client.js"></script>
+
+    <!--Services-->
+    <script src="services/user.service.client.js"></script>
+    <script src="services/place.service.client.js"></script>
+
+    <!--Stylesheets-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link href="css/styles.css"
+          rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Project Home Page</h1>
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+    <div ng-view class="ng-scope"></div>
 </body>
 </html>

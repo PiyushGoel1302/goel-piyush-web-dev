@@ -1,0 +1,121 @@
+.pro-home {
+    font-size: xx-large;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 20px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+input, textarea {
+    margin-bottom: 5px;
+}
+
+.pro-body {
+    padding-top: 60px;
+}
+
+.pro .navbar-default, .pro-background {
+    background-color: rgb(175, 108, 67);
+    /*border-color: rgba(255, 96, 0, 0.65);*/
+}
+
+.pro .navbar-default .navbar-brand {
+    color: black;
+    align-content: center;
+}
+
+.pro .navbar-default .navbar-nav>li>a {
+    color: black;
+}
+
+.pro .pro-glyphicon {
+    color: black;
+    align-content: center;
+}
+
+.pro .pro-split-view {
+    position: fixed;
+    width: 100%;
+    top: 60px;
+    bottom: 60px;
+    overflow-y: scroll;
+}
+
+.pro .pro-split-view-left {
+    position: absolute;
+    top: 60px;
+    bottom: 60px;
+    z-index: 1;
+    overflow-y: scroll;
+}
+
+@media (min-width: 1200px) {
+    .col-lg-8.pro-split-view-right {
+        width: 66.66666667%;
+        position: absolute;
+        right: 0px;
+        top: 60px;
+        bottom: 60px;
+        overflow-y: scroll;
+    }
+}
+
+.pro .pro-widget-header {
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.pro .pro-paragraph {
+    font-style: italic;
+}
+
+.pro .pro-justify-glyphi {
+    color: black;
+    font-size: 15px;
+    background-color: white;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.pro .pro-cog-glyphi {
+    font-size: 15px;
+    background-color: white;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.pro .pro-margin-bottom {
+    margin-bottom: 10px;
+}
+
+.pro .pro-margin-right {
+    margin-right: 7px;
+}
+
+.pro .pro-image {
+    height: 350px;
+}
+
+.video-container {
+    position: relative;
+    height: 360px;
+    overflow: hidden;
+}
+
+.video-container-iframe {
+    position: relative;
+    height: 100%;
+}
+
+.pro .pro-glyphicon-split {
+    position: absolute;
+    z-index: 1;
+}
+
+mark {
+    background-color: white;
+    color: #337ab7;
+}

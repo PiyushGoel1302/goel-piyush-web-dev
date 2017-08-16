@@ -1,0 +1,58 @@
+<div class="pro pro-body pro-host">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-left">
+                <a ng-href="#!/profile/{{model.userRole | lowercase}}" class="pro-glyphicon">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand">TravelMate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid pro-split-view">
+        <div class="row">
+            <div class="col-xs-12">
+                <label for="search">Search Hosts by place name</label>
+                <input id="search" type="text" placeholder="Enter place" ng-model="model.placeName" class="form-control">
+                <a class="btn btn-primary btn-block form-control" ng-click="model.searchHost(model.placeName | lowercase)">Search</a>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-12">
+                <div ng-show="model.result">
+                    <label>
+                        Hosts:
+                    </label>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="val in model.result.hosts">
+                        <a href="#">{{val.firstName | uppercase}} {{val.lastName | uppercase}}</a>
+                        <button ng-click="model.getReview(val._id)"
+                                class="smoothScroll fa fa-sticky-note pull-right"> Reviews
+                        </button>
+                        <button ng-hide="model.alreadyFollowing(val._id)" ng-click="model.follow(val)"
+                                class="smoothScroll fa fa-plus pull-right"> Follow
+                        </button>
+                        <button ng-show="model.alreadyFollowing(val._id)" ng-click="model.unfollow(val)"
+                                class="smoothScroll fa fa-plus pull-right"> Unfollow
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a ng-href="#!/profile/{{model.userRole | lowercase}}" class="pro-glyphicon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>

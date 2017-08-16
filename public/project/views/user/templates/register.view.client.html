@@ -1,0 +1,79 @@
+<div class="pro pro-body pro-register">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!--<div class="navbar-text pull-left">-->
+                <!--<a href="#" class="pro-glyphicon">-->
+                    <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+                <!--</a>-->
+            <!--</div>-->
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a class="smoothScroll navbar-brand">TravelMate</a>
+            </div>
+            <!--<div class="collapse navbar-collapse">-->
+            <!--<ul class="nav navbar-nav navbar-right">-->
+            <!--<li><a ng-href="#!/login" class="smoothScroll glyphicon glyphicon-log-in"> Login</a></li>-->
+            <!--<li><a ng-href="#!/register" class="smoothScroll glyphicon glyphicon-registration-mark"> Register</a></li>-->
+            <!--</ul>-->
+            <!--</div>-->
+        </div>
+    </nav>
+
+    <div class="container-fluid pro-split-view">
+
+    <h2>Register</h2>
+
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+
+        <label for="username">Username</label>
+        <input name="username"
+               ng-model="model.user.username"
+               class="form-control"
+               placeholder="Username"
+               id="username"/>
+
+        <label for="password">Password</label>
+        <input name="password"
+               ng-model="model.user.password"
+               type="password"
+               class="form-control"
+               placeholder="Password"
+               id="password"/>
+
+        <label for="verifypassword">Verify Password</label>
+        <input name="verifypassword"
+               ng-model="model.user.password2"
+               type="password"
+               class="form-control"
+               placeholder="Verify Password"
+               id="verifypassword"/>
+
+        <label for="role">User Role</label>
+        <select name="role"
+                ng-model="model.user.role"
+                class="form-control form-group"
+                id="role">
+            <option selected value="Traveller">Traveller</option>
+            <option value="Host">Host</option>
+        </select>
+
+        <a class="btn btn-default btn-primary btn-block"
+           ng-click="model.createUser(model.user)"
+           role="button">Register</a>
+
+        <a class="btn btn-default btn-danger btn-block"
+           ng-href="#"
+           role="button">Cancel</a>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+        </div>
+    </nav>
+</div>
