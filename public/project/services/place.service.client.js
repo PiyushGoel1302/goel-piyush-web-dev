@@ -14,9 +14,9 @@
         this.removeFromList = removeFromList;
         this.searchHost = searchHost;
 
-        client_id = process.env.FOURSQUARE_CLIENT_ID;
+        client_id = "O0RQ5MCQRO0CXOWBQSSE5JXLLCO1M0L51NOEJH23YTNNX05B";
 
-        client_secret = process.env.FOURSQUARE_CLIENT_SECRET;
+        client_secret = "3UGFREITEOYUFAT0I2FK0YDL2SHDPS0IQEDMAN1F2FOGSD3I";
 
         function searchPlace(placeName) {
             var url = "https://api.foursquare.com/v2/venues/search?client_id=" + client_id + "&client_secret=" + client_secret + "&v=20170101&near=" + placeName;
