@@ -8,8 +8,10 @@
 
         return {
             "login": login,
+            "logout": logout,
             "findUserByUserId": findUserByUserId,
             "createUser": createUser,
+            "register": register,
             "findUserByUsername": findUserByUsername,
             "updateUser": updateUser,
             "deleteUser": deleteUser,
@@ -32,6 +34,15 @@
             var url = "/api/login";
             return $http.post(url, {username: username, password: password});
         }
+
+        function logout(user) {
+            return $http.post("/api/logout");
+        }
+
+        function register(user) {
+            return $http.post("/api/register", user);
+        }
+
 
         function findUserByUserId(userId) {
             return $http.get("/api/user/" + userId);

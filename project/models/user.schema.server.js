@@ -11,11 +11,12 @@ var userSchema = mongoose.Schema({
     email:       String,
     phone:       String,
     role:        {type: String, enum: ["Admin", "Host", "Traveller"]},
-    following:   [{type: mongoose.Schema.Types.ObjectId, ref: "UserModel"}],
-    followers:   [{type: mongoose.Schema.Types.ObjectId, ref: "UserModel"}],
-    wishlist:    [{type: mongoose.Schema.Types.ObjectId, ref: "PlaceModel"}],
+    following:   [{type: mongoose.Schema.Types.ObjectId, ref: "UserModelProject"}],
+    followers:   [{type: mongoose.Schema.Types.ObjectId, ref: "UserModelProject"}],
+    wishlist:    [{type: mongoose.Schema.Types.ObjectId, ref: "PlaceModelProject"}],
     google:      {id: String, token: String},
+    facebook:    {id: String, token: String},
     dateCreated: {type: Date, default: Date.now()}
-}, {collection: "user"});
+}, {collection: "projectuser"});
 
 module.exports = userSchema;

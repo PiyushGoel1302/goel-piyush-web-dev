@@ -6,9 +6,9 @@ var mongoose = require("mongoose");
 var placeSchema = mongoose.Schema({
     placeName:   String,
     address:     String,
-    followers:   [{type: mongoose.Schema.Types.ObjectId, ref: "UserModel"}],
-    hosts:       [{type: mongoose.Schema.Types.ObjectId, ref: "UserModel"}],
+    followers:   [{type: mongoose.Schema.Types.ObjectId, ref: "UserModelProject"}],
+    hosts:       [{type: mongoose.Schema.Types.ObjectId, ref: "UserModelProject"}],
     dateCreated: {type: Date, default: Date.now()}
-}, {collection: "place"});
+}, {collection: "projectplace"});
 
 module.exports = placeSchema;

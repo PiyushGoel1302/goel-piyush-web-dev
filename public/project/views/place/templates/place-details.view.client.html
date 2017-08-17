@@ -1,0 +1,31 @@
+<div class="pro pro-body pro-details">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-left">
+                <a ng-href="#!/place" class="pro-glyphicon">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="smoothScroll navbar-brand">TravelMate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid pro-split-view">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+                <h1>Details:</h1>
+                <h3>Venue name: {{model.place.name}}</h3>
+                <h4>Location: {{model.place.location.formattedAddress}}</h4>
+                <h4>Timings: {{model.place.hours.status}}</h4>
+                <h4>Rating:{{model.place.rating}}</h4>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+        </div>
+    </nav>
+</div>

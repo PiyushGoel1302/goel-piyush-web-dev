@@ -10,12 +10,12 @@
                 <a class="smoothScroll navbar-brand">TravelMate</a>
             </div>
             <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav nav-pills navbar-right">
                     <li><a ng-href="#!/profile" class="smoothScroll fa fa-user"> Profile</a></li>
                     <li><a href="" class="smoothScroll fa fa-sticky-note"> Reviews</a></li>
-                    <li><a ng-href="#!/following" ng-hide="model.userRole === 'Host'" class="smoothScroll fa fa-users"> Following</a></li>
+                    <li><a ng-click="model.following()" ng-hide="model.userRole === 'Host'" class="smoothScroll fa fa-users"> Following</a></li>
                     <li><a ng-href="#!/followers" ng-hide="model.userRole === 'Traveller'" class="smoothScroll fa fa-users"> Followers</a></li>
-                    <li><a ng-href="#!/place" class="smoothScroll fa fa-search"> Search Place</a></li>
+                    <li><a ng-click="model.place()" class="smoothScroll fa fa-search"> Search Place</a></li>
                 </ul>
             </div>
         </div>
@@ -23,11 +23,16 @@
 
     <div class="container-fluid pro-split-view">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="val in model.places">
-                        <a href="">{{val.placeName | uppercase}}</a>
-                        <!--<a ng-click="placeController.removeFromList(val.placeName | lowercase)" class="pull-right">Remove from Wish List</a>-->
+                        <a>{{val.placeName | uppercase}}</a>
+                        <button ng-click="model.getReview(model.placeName | lowercase)"
+                                class="smoothScroll fa fa-sticky-note fa-pull-right"> Reviews
+                        </button>
+                        <button ng-click="model.removeFromList(val.placeName | lowercase)"
+                                class="smoothScroll fa fa-plus fa-pull-right"> Remove from Wish List
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -36,11 +41,6 @@
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
-            <div class="navbar-text pull-right">
-                <a ng-href="#!/profile/{{model.userRole | lowercase}}" class="pro-glyphicon">
-                    <span class="glyphicon glyphicon-user"></span>
-                </a>
-            </div>
         </div>
     </nav>
 </div>

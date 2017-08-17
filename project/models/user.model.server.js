@@ -3,7 +3,7 @@
  */
 var mongoose = require("mongoose");
 var userSchema = require("./user.schema.server");
-var userModel = mongoose.model("UserModel", userSchema);
+var userModel = mongoose.model("UserModelProject", userSchema);
 
 userModel.createUser = createUser;
 userModel.findUserById = findUserById;
@@ -12,6 +12,7 @@ userModel.deleteUser = deleteUser;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.findUserByUsername = findUserByUsername;
 userModel.findUserByGoogleId = findUserByGoogleId;
+userModel.findUserByFacebookId = findUserByFacebookId;
 userModel.addToWishlist = addToWishlist;
 userModel.removeFromWishlist = removeFromWishlist;
 userModel.followUser = followUser;
@@ -21,6 +22,10 @@ module.exports = userModel;
 
 function findUserByGoogleId(googleId) {
     return userModel.findOne({'google.id': googleId});
+}
+
+function findUserByFacebookId(facebookId) {
+    return userModel.findOne({'facebook.id': facebookId});
 }
 
 function createUser(user) {

@@ -31,6 +31,22 @@ input, textarea {
     color: black;
 }
 
+.pro .nav>li>a {
+    position: relative;
+    display: block;
+    padding: 17px 10px;
+    color: #000;
+}
+
+.pro .navbar-default .navbar-toggle .icon-bar {
+    background-color: #000;
+    border-color: #000;
+}
+
+.pro .navbar-default .navbar-toggle {
+    border-color: #000;
+}
+
 .pro .pro-glyphicon {
     color: black;
     align-content: center;

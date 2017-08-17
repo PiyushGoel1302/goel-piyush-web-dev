@@ -3,7 +3,7 @@
  */
 var mongoose = require("mongoose");
 var placeSchema = require("./place.schema.server");
-var placeModel = mongoose.model("PlaceModel", placeSchema);
+var placeModel = mongoose.model("PlaceModelProject", placeSchema);
 
 placeModel.checkFollower = checkFollower;
 placeModel.checkHost = checkHost;

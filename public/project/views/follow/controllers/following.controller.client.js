@@ -6,7 +6,7 @@
         .module("TravelMate")
         .controller("followingController", followingController);
 
-    function followingController(userService, placeService, user, $route, $rootScope) {
+    function followingController(userService, placeService, user, $route, $rootScope, $location) {
         var model = this;
         var userId = user._id;
         model.userRole = user.role;
@@ -15,6 +15,7 @@
         model.searchHost = searchHost;
         model.alreadyFollowing = alreadyFollowing;
         model.follow = follow;
+        model.place = place;
 
         function init() {
             userService.getFollowersList(userId)
@@ -25,8 +26,10 @@
                 .then(function (response) {
                     model.following = response.data;
                 });
-            model.placeName = $rootScope.placeForHost;
-            model.searchHost(model.placeName);
+            if($rootScope.placeForHost) {
+                model.placeName = $rootScope.placeForHost;
+                model.searchHost(model.placeName);
+            }
         }
         init();
 
@@ -60,6 +63,11 @@
                 .then(function (response) {
                     $route.reload();
                 });
+        }
+
+        function place() {
+            $rootScope.place = null;
+            $location.url("/place");
         }
     }
 })();

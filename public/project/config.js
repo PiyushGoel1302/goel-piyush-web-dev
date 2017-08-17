@@ -44,17 +44,17 @@
                     user: checkLogin
                 }
             })
-            .when("/wishList", {
-                templateUrl: "views/wishlist/templates/wish-list.view.client.html",
-                controller: "wishListController",
+            .when("/place/:placeId", {
+                templateUrl: "views/place/templates/place-details.view.client.html",
+                controller: "placeDetailsController",
                 controllerAs: "model",
                 resolve: {
                     user: checkLogin
                 }
             })
-            .when("/hostSearch", {
-                templateUrl: "views/host-search/templates/host-search.view.client.html",
-                controller: "hostSearchController",
+            .when("/wishList", {
+                templateUrl: "views/wishlist/templates/wish-list.view.client.html",
+                controller: "wishListController",
                 controllerAs: "model",
                 resolve: {
                     user: checkLogin
@@ -71,6 +71,22 @@
             .when("/following", {
                 templateUrl: "views/follow/templates/following.view.client.html",
                 controller: "followingController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkLogin
+                }
+            })
+            .when("/host/:hostId", {
+                templateUrl: "views/follow/templates/host-details.view.client.html",
+                controller: "hostDetailsController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkLogin
+                }
+            })
+            .when("/follower/:followerId", {
+                templateUrl: "views/follow/templates/follower-details.view.client.html",
+                controller: "followersDetailsController",
                 controllerAs: "model",
                 resolve: {
                     user: checkLogin

@@ -10,81 +10,78 @@
                 <a class="smoothScroll navbar-brand">TravelMate</a>
             </div>
             <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav nav-pills navbar-right">
                     <li><a ng-href="#!/wishList" class="smoothScroll fa fa-list"> Wish List</a></li>
                     <li><a href="" class="smoothScroll fa fa-sticky-note"> Reviews</a></li>
-                    <li><a ng-href="#!/following" ng-hide="model.userRole === 'Host'" class="smoothScroll fa fa-users"> Following</a></li>
+                    <li><a ng-click="model.following()" ng-hide="model.userRole === 'Host'" class="smoothScroll fa fa-users"> Following</a></li>
                     <li><a ng-href="#!/followers" ng-hide="model.userRole === 'Traveller'" class="smoothScroll fa fa-users"> Followers</a></li>
-                    <li><a ng-href="#!/place" class="smoothScroll fa fa-search"> Search Place</a></li>
+                    <li><a ng-click="model.place()" class="smoothScroll fa fa-search"> Search Place</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <div class="container-fluid pro-split-view">
-        <label for="firstname">First Name</label>
-        <input name="firstname"
-               ng-model="model.user.firstName"
-               class="form-control"
-               placeholder="First Name"
-               id="firstname"/>
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+                <label for="firstname">First Name</label>
+                <input name="firstname"
+                       ng-model="model.user.firstName"
+                       class="form-control"
+                       placeholder="First Name"
+                       id="firstname"/>
 
-        <label for="lastname">Last Name</label>
-        <input name="lastname"
-               ng-model="model.user.lastName"
-               class="form-control"
-               placeholder="Last Name"
-               id="lastname"/>
+                <label for="lastname">Last Name</label>
+                <input name="lastname"
+                       ng-model="model.user.lastName"
+                       class="form-control"
+                       placeholder="Last Name"
+                       id="lastname"/>
 
-        <label for="username">Username</label>
-        <input name="username"
-               ng-model="model.user.username"
-               readonly
-               class="form-control"
-               id="username"/>
+                <label for="username">Username</label>
+                <input name="username"
+                       ng-model="model.user.username"
+                       readonly
+                       class="form-control"
+                       id="username"/>
 
-        <label for="email">Email</label>
-        <input name="email"
-               type="email"
-               ng-model="model.user.email"
-               class="form-control"
-               placeholder="Email"
-               id="email"/>
+                <label for="email">Email</label>
+                <input name="email"
+                       type="email"
+                       ng-model="model.user.email"
+                       class="form-control"
+                       placeholder="Email"
+                       id="email"/>
 
-        <label for="phone">Contact Number</label>
-        <input name="phone"
-               ng-model="model.user.phone"
-               class="form-control"
-               placeholder="Contact Number"
-               id="phone"/>
+                <label for="phone">Contact Number</label>
+                <input name="phone"
+                       ng-model="model.user.phone"
+                       class="form-control"
+                       placeholder="Contact Number"
+                       id="phone"/>
 
-        <label for="role">User Role</label>
-        <input name="role"
-               ng-model="model.user.role"
-               readonly
-               class="form-control"
-               id="role"/>
+                <label for="role">User Role</label>
+                <input name="role"
+                       ng-model="model.user.role"
+                       readonly
+                       class="form-control"
+                       id="role"/>
 
-        <a class="btn btn-default btn-primary btn-block"
-           ng-click="model.updateUser(model.user)"
-           role="button">Save Changes</a>
+                <a class="btn btn-default btn-primary btn-block"
+                   ng-click="model.updateUser(model.user)"
+                   role="button">Save Changes</a>
 
-        <a class="btn btn-default btn-success btn-block"
-           ng-href="#!login"
-           role="button">Logout</a>
+                <a class="btn btn-default btn-success btn-block"
+                   ng-click="model.logout()"
+                   role="button">Logout</a>
 
-        <a class="btn btn-default btn-danger btn-block"
-           ng-click="model.deleteUser(model.user)"
-           role="button">Unregister</a>
+                <a class="btn btn-default btn-danger btn-block"
+                   ng-click="model.deleteUser(model.user)"
+                   role="button">Unregister</a>
+            </div>
+        </div>
     </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container-fluid">
-            <div class="navbar-text pull-right">
-                <a ng-href="#!/profile/{{model.userRole | lowercase}}" class="pro-glyphicon">
-                    <span class="glyphicon glyphicon-user"></span>
-                </a>
-            </div>
-        </div>
     </nav>
 </div>

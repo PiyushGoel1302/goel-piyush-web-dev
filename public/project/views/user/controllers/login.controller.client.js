@@ -8,6 +8,7 @@
         var model = this;
 
         model.login = login;
+        model.back = back;
 
         function init() {
             // $rootScope.title = "Login";
@@ -28,6 +29,11 @@
                         $location.url("/profile");
                     }
                 });
+        }
+
+        function back() {
+            $rootScope.placeName = null;
+            $location.url("/");
         }
     }
 })();

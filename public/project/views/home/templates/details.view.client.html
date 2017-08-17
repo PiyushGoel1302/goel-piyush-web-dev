@@ -23,16 +23,20 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
-        <h1>Details:</h1>
-        <h2>Venue name:</h2>
-        {{model.venue.name}}
-        <h3>Location:</h3>
-        {{model.venue.location.formattedAddress}}
-        <h3>Timings:</h3>
-        {{model.venue.hours.status}}
-        <h3>Rating:</h3>
-        {{model.venue.rating}}
+    <div class="container-fluid pro-split-view">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+                <h2>Details:</h2>
+                <h3>Venue name:</h3>
+                {{model.venue.name}}
+                <h4>Location:</h4>
+                {{model.venue.location.formattedAddress}}
+                <h4>Timings:</h4>
+                {{model.venue.hours.status}}
+                <h4>Rating:</h4>
+                {{model.venue.rating}}
+            </div>
+        </div>
     </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">

@@ -1,4 +1,3 @@
-
 var app = require("../../express");
 var userModel = require("../models/user.model.server");
 var passport = require("passport");
@@ -8,14 +7,23 @@ passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var googleConfig = {
-    clientID     : "462891680942-3k3jr2ti4mojccuviulcl6a7almp69o1.apps.googleusercontent.com",
-    clientSecret : "GzvNwGzFmdn81DIPUxsM-VZw",
-    callbackURL  : "http://127.0.0.1:3000/google/callback"
+    clientID     : process.env.GOOGLE_CLIENT_ID,
+    clientSecret : process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL  : process.env.GOOGLE_CALLBACK_URL
+};
+var FacebookStrategy = require('passport-facebook').Strategy;
+var facebookConfig = {
+    clientID     : process.env.FACEBOOK_CLIENT_ID,
+    clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL  : process.env.FACEBOOK_CALLBACK_URL
 };
 
 passport.use(new GoogleStrategy(googleConfig, googleStrategy));
+passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
 app.post("/api/login", passport.authenticate('local'), login);
+app.post("/api/logout", logout);
+app.post ('/api/register', register);
 app.get("/api/user/:userId", getUserById);
 app.get("/api/user", getUser);
 app.post("/api/user", createUser);
@@ -27,11 +35,17 @@ app.get("/api/followers/user/:userId", getFollowersList);
 app.get("/api/following/user/:userId", getFollowingList);
 app.put("/api/follow/user/:userId", followUser);
 app.put("/api/unfollow/user/:userId", unfollowUser);
-app.get("/api/auth/google", passport.authenticate('google', { scope : ['profile', 'email'] }));
-app.get('/google/callback',
+app.get("/auth/google", passport.authenticate('google', { scope : ['profile', 'email'] }));
+app.get('/auth/google/callback',
     passport.authenticate('google', {
-        successRedirect: '/assignment/#!/profile',
-        failureRedirect: '/assignment/#!/login'
+        successRedirect: '/project/#!/profile',
+        failureRedirect: '/project/#!/login'
+    }));
+app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', {
+        successRedirect: '/project/#!/profile',
+        failureRedirect: '/project/#!/login'
     }));
 
 function googleStrategy(token, refreshToken, profile, done) {
@@ -55,6 +69,40 @@ function googleStrategy(token, refreshToken, profile, done) {
                         }
                     };
                     return userModel.createUser(newGoogleUser);
+                }
+            },
+            function(err) {
+                if (err) { return done(err); }
+            }
+        )
+        .then(
+            function(user){
+                return done(null, user);
+            },
+            function(err){
+                if (err) { return done(err); }
+            }
+        );
+}
+
+function facebookStrategy(token, refreshToken, profile, done) {
+    userModel
+        .findUserByFacebookId(profile.id)
+        .then(
+            function(user) {
+                if(user) {
+                    return done(null, user);
+                } else {
+                    var newFbUser = {
+                        username:  profile.displayName.split(" ")[0],
+                        firstName: profile.displayName.split(" ")[0],
+                        lastName:  profile.displayName.split(" ")[1],
+                        facebook: {
+                            id:    profile.id,
+                            token: token
+                        }
+                    };
+                    return userModel.createUser(newFbUser);
                 }
             },
             function(err) {
@@ -110,6 +158,30 @@ function login(req, res) {
     var user = req.user;
     res.json(user);
 }
+
+function logout(req, res) {
+    req.logOut();
+    res.sendStatus(200);
+}
+
+function register (req, res) {
+    var user = req.body;
+    userModel
+        .createUser(user)
+        .then(
+        function(user){
+            if(user){
+                req.login(user, function(err) {
+                    if(err) {
+                        res.status(400).send(err);
+                    } else {
+                        res.json(user);
+                    }
+                });
+            }
+        });
+}
+
 
 function getUser(req, res) {
     var username = req.query.username;
