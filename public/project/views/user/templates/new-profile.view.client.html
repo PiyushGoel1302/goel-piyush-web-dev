@@ -1,0 +1,80 @@
+<div class="pro pro-body pro-profile">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="smoothScroll navbar-brand">TravelMate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid pro-split-view">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+
+                <div ng-show="model.errorMessage" class="alert alert-danger">
+                    {{model.errorMessage}}
+                </div>
+
+                <label for="firstname">First Name</label>
+                <input name="firstname"
+                       ng-model="model.user.firstName"
+                       class="form-control"
+                       placeholder="First Name"
+                       id="firstname"/>
+
+                <label for="lastname">Last Name</label>
+                <input name="lastname"
+                       ng-model="model.user.lastName"
+                       class="form-control"
+                       placeholder="Last Name"
+                       id="lastname"/>
+
+                <label for="username">Username</label>
+                <input name="username"
+                       ng-model="model.user.username"
+                       readonly
+                       class="form-control"
+                       id="username"/>
+
+                <label for="email">Email</label>
+                <input name="email"
+                       type="email"
+                       ng-model="model.user.email"
+                       class="form-control"
+                       placeholder="Email"
+                       id="email"/>
+
+                <label for="phone">Contact Number</label>
+                <input name="phone"
+                       ng-model="model.user.phone"
+                       class="form-control"
+                       placeholder="Contact Number"
+                       id="phone"/>
+
+                <label for="role">User Role</label>
+                <select name="role"
+                        ng-model="model.user.role"
+                        class="form-control form-group"
+                        id="role">
+                    <option value="Traveller">Traveller</option>
+                    <option value="Host">Host</option>
+                </select>
+
+                <a class="btn btn-default btn-primary btn-block"
+                   ng-click="model.updateUser(model.user)"
+                   role="button">Save Changes</a>
+
+                <a class="btn btn-default btn-success btn-block"
+                   ng-click="model.logout()"
+                   role="button">Logout</a>
+
+                <a class="btn btn-default btn-danger btn-block"
+                   ng-click="model.deleteUser(model.user)"
+                   role="button">Unregister</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+    </nav>
+</div>

@@ -1,12 +1,12 @@
 /**
- * Created by piyushgoel on 7/20/17.
+ * Created by piyushgoel on 8/16/17.
  */
 (function () {
     angular
         .module("TravelMate")
-        .controller("profileController", profileController);
+        .controller("newProfileController", newProfileController);
 
-    function profileController(userService, $location, user, $rootScope, $route) {
+    function newProfileController(userService, $location, user, $rootScope, $route) {
         var model = this;
         var userId = user._id;
         model.userRole = user.role;
@@ -21,16 +21,24 @@
             userService.findUserByUserId(userId)
                 .then(function (response) {
                     model.user = response.data;
+                    if(model.user.role) {
+                        $location.url("/profile")
+                    }
                 });
         }
 
         init();
 
         function updateUser(user) {
-            userService.updateUser(user._id, user)
-                .then(function (response) {
-                    model.user = response.data;
-                });
+            if(!user.role) {
+                model.errorMessage = "Enter User Role!!!"
+            } else {
+                userService.updateUser(user._id, user)
+                    .then(function (response) {
+                        model.user = response.data;
+                        $location.url("/profile")
+                    });
+            }
         }
 
         function deleteUser(user) {

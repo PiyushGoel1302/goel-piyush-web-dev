@@ -36,6 +36,14 @@
                     user: checkLogin
                 }
             })
+            .when("/newprofile", {
+                templateUrl: "views/user/templates/new-profile.view.client.html",
+                controller: "newProfileController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkLogin
+                }
+            })
             .when("/place", {
                 templateUrl: "views/place/templates/place-search.view.client.html",
                 controller: "placeController",

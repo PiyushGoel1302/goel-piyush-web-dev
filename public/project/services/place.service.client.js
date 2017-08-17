@@ -14,9 +14,9 @@
         this.removeFromList = removeFromList;
         this.searchHost = searchHost;
 
-        client_id = process.env.FOURSQUARE_CLIENT_ID;
+        client_id = "5DASS3X4IBEZDYMUA3LQOBJKKQTERN2AXMCIJFIFTV2YQFQF";
 
-        client_secret = process.env.FOURSQUARE_CLIENT_SECRET;
+        client_secret = "AIGQZQE4TUDU332ZIQ5SEVJD0CROE3QF0GZ5F0BGRJNFVJET";
 
         function searchPlace(placeName) {
             var url = "https://api.foursquare.com/v2/venues/search?client_id=" + client_id + "&client_secret=" + client_secret + "&v=20170101&near=" + placeName;
@@ -29,24 +29,24 @@
         }
 
         function findIfAlreadyInList(placeName, userId, userRole) {
-            var url = "/api/place/" + placeName + "/user?userId=" + userId + "&userRole=" + userRole;
+            var url = "/api/project/place/" + placeName + "/user?userId=" + userId + "&userRole=" + userRole;
             return $http.get(url);
         }
 
         function addToList(placeName, userId, userRole) {
             var user = {_id: userId, role: userRole};
-            var url = "/api/place/add/" + placeName;
+            var url = "/api/project/place/add/" + placeName;
             return $http.post(url, user);
         }
 
         function removeFromList(placeName, userId, userRole) {
             var user = {_id: userId, role: userRole};
-            var url = "/api/place/remove/" + placeName;
+            var url = "/api/project/place/remove/" + placeName;
             return $http.post(url, user);
         }
 
         function searchHost(placeName) {
-            var url = "/api/placeHost/" + placeName;
+            var url = "/api/project/placeHost/" + placeName;
             return $http.get(url);
         }
     }

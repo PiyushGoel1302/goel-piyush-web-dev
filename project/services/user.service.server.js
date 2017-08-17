@@ -21,30 +21,30 @@ var facebookConfig = {
 passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
-app.post("/api/login", passport.authenticate('local'), login);
-app.post("/api/logout", logout);
-app.post ('/api/register', register);
-app.get("/api/user/:userId", getUserById);
-app.get("/api/user", getUser);
-app.post("/api/user", createUser);
-app.put("/api/user/:userId", updateUser);
-app.delete("/api/user/:userId", deleteUser);
-app.get("/api/checkLogin", checkLogin);
-app.get("/api/wishlist/:userId", getWishList);
-app.get("/api/followers/user/:userId", getFollowersList);
-app.get("/api/following/user/:userId", getFollowingList);
-app.put("/api/follow/user/:userId", followUser);
-app.put("/api/unfollow/user/:userId", unfollowUser);
+app.post("/api/project/login", passport.authenticate('local'), login);
+app.post("/api/project/logout", logout);
+app.post ('/api/project/register', register);
+app.get("/api/project/user/:userId", getUserById);
+app.get("/api/project/user", getUser);
+app.post("/api/project/user", createUser);
+app.put("/api/project/user/:userId", updateUser);
+app.delete("/api/project/user/:userId", deleteUser);
+app.get("/api/project/checkLogin", checkLogin);
+app.get("/api/project/wishlist/:userId", getWishList);
+app.get("/api/project/followers/user/:userId", getFollowersList);
+app.get("/api/project/following/user/:userId", getFollowingList);
+app.put("/api/project/follow/user/:userId", followUser);
+app.put("/api/project/unfollow/user/:userId", unfollowUser);
 app.get("/auth/google", passport.authenticate('google', { scope : ['profile', 'email'] }));
 app.get('/auth/google/callback',
     passport.authenticate('google', {
-        successRedirect: '/project/#!/profile',
+        successRedirect: '/project/#!/newprofile',
         failureRedirect: '/project/#!/login'
     }));
 app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
 app.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
-        successRedirect: '/project/#!/profile',
+        successRedirect: '/project/#!/newprofile',
         failureRedirect: '/project/#!/login'
     }));
 

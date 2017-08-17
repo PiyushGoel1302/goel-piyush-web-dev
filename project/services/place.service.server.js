@@ -4,10 +4,10 @@
 var app = require("../../express");
 var placeModel = require("../models/place.model.server");
 
-app.get("/api/place/:placeName/user",  checkFollower);
-app.post("/api/place/add/:placeName", addFollower);
-app.post("/api/place/remove/:placeName", removeFollower);
-app.get("/api/placeHost/:placeName", searchHost);
+app.get("/api/project/place/:placeName/user",  checkFollower);
+app.post("/api/project/place/add/:placeName", addFollower);
+app.post("/api/project/place/remove/:placeName", removeFollower);
+app.get("/api/project/placeHost/:placeName", searchHost);
 
 function checkFollower(req, res) {
     var placeName = req.params.placeName;
