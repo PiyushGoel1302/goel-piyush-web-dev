@@ -18,28 +18,30 @@
     <div class="container-fluid pro-split-view">
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
-                <h1>Reviews for {{model.reviewUser.firstName}} {{model.reviewUser.lastName}}:</h1>
-                <!--<h3>Host name: {{model.host.firstName}} {{model.host.lastName}}</h3>-->
-                <!--<h4>Email Id: {{model.host.email}}</h4>-->
-                <!--<h4>Contact Info: {{model.host.phone}}</h4>-->
-                <!--<h4>Hosting cities:</h4>-->
-                <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="val in model.reviewUser.reviews">
-                        <p>Reviewer: {{val.reviewer.firstName}}</p>
-                        <p>{{val.content}}</p>
-                        <a ng-click="model.deleteReview(val._id)" ng-show="val.reviewer._id === model.userId"
-                           class="smoothScroll fa fa-minus"> Delete Review</a>
-                    </li>
-                </ul>
+                <div>
+                    <h3>Reviews for {{model.reviewUser.firstName}} {{model.reviewUser.lastName}}:</h3>
+                    <!--<h3>Host name: {{model.host.firstName}} {{model.host.lastName}}</h3>-->
+                    <!--<h4>Email Id: {{model.host.email}}</h4>-->
+                    <!--<h4>Contact Info: {{model.host.phone}}</h4>-->
+                    <!--<h4>Hosting cities:</h4>-->
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="val in model.reviewForUser">
+                            <button ng-click="model.deleteReview(val._id)" ng-show="val.reviewer._id === model.userId"
+                                    class="smoothScroll pull-right"> Delete Review</button>
+                            <p>Reviewer: {{val.reviewer.firstName}} {{val.reviewer.lastName}}</p>
+                            <p>Review: {{val.content}}</p>
+                        </li>
+                    </ul>
+                </div>
                 <hr>
                 <label for="review">Write a Review:</label>
                 <textarea name="review"
                           rows="3"
-                          ng-model="model.reviewContent"
+                          ng-model="model.review.content"
                           class="form-control"
                           placeholder="Write a Review"
                           id="review"></textarea>
-                <button ng-click="model.addReview(model.reviewContent)" class="btn btn-primary btn-block">Submit</button>
+                <button ng-click="model.addReview(model.review.content)" class="btn btn-primary btn-block">Submit</button>
             </div>
         </div>
     </div>

@@ -15,10 +15,13 @@
     <div class="container-fluid pro-split-view">
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
-                <h1>Host Details:</h1>
-                <h3>Host name: {{model.host.firstName}} {{model.host.lastName}}</h3>
-                <h4>Email Id: {{model.host.email}}</h4>
-                <h4>Contact Info: {{model.host.phone}}</h4>
+                <h2>Host Details:</h2>
+                <h4>Host name:</h4>
+                <p>{{model.host.firstName}} {{model.host.lastName}}</p>
+                <h4>Email Id:</h4>
+                <p>{{model.host.email}}</p>
+                <h4>Contact Info:</h4>
+                <p>{{model.host.phone}}</p>
                 <h4>Hosting cities:</h4>
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="val in model.host.wishlist">

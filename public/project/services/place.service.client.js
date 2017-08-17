@@ -13,6 +13,8 @@
         this.addToList = addToList;
         this.removeFromList = removeFromList;
         this.searchHost = searchHost;
+        this.removeFromHostsList = removeFromHostsList;
+        this.removeFromFollowersList = removeFromFollowersList;
 
         client_id = "5DASS3X4IBEZDYMUA3LQOBJKKQTERN2AXMCIJFIFTV2YQFQF";
 
@@ -48,6 +50,16 @@
         function searchHost(placeName) {
             var url = "/api/project/placeHost/" + placeName;
             return $http.get(url);
+        }
+
+        function removeFromHostsList(userId, place) {
+            var url = "/api/project/delete/host/place/" + userId;
+            return $http.post(url, place);
+        }
+
+        function removeFromFollowersList(userId, place) {
+            var url = "/api/project/delete/follower/place/" + userId;
+            return $http.post(url, place);
         }
     }
 })();

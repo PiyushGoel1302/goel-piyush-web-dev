@@ -17,6 +17,7 @@ var facebookConfig = {
     clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
     callbackURL  : process.env.FACEBOOK_CALLBACK_URL
 };
+var bcrypt = require("bcrypt-nodejs");
 
 passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
@@ -31,11 +32,13 @@ app.put("/api/project/user/:userId", updateUser);
 app.delete("/api/project/user/:userId", deleteUser);
 app.get("/api/project/checkLogin", checkLogin);
 app.get("/api/project/wishlist/:userId", getWishList);
-app.get("/api/project/reviews/:userId", getReviews);
 app.get("/api/project/followers/user/:userId", getFollowersList);
 app.get("/api/project/following/user/:userId", getFollowingList);
 app.put("/api/project/follow/user/:userId", followUser);
 app.put("/api/project/unfollow/user/:userId", unfollowUser);
+app.post("/api/project/delete/follower/user/:userId", removeFromFollowersList);
+app.post("/api/project/delete/following/user/:userId", removeFromFollowingList);
+
 app.get("/auth/google", passport.authenticate('google', { scope : ['profile', 'email'] }));
 app.get('/auth/google/callback',
     passport.authenticate('google', {
@@ -143,11 +146,11 @@ function deserializeUser(user, done) {
 
 function localStrategy(username, password, done) {
     userModel
-        .findUserByCredentials(username, password)
+        .findUserByUsername(username)
         .then(
             function(user) {
-                if (!user) { return done(null, false); }
-                return done(null, user);
+                if (user && bcrypt.compareSync(password, user.password)) { return done(null, user); }
+                return done(null, false);
             },
             function(err) {
                 if (err) { return done(err); }
@@ -167,6 +170,7 @@ function logout(req, res) {
 
 function register (req, res) {
     var user = req.body;
+    user.password = bcrypt.hashSync(user.password);
     userModel
         .createUser(user)
         .then(
@@ -254,18 +258,6 @@ function getWishList(req, res) {
         });
 }
 
-function getReviews(req, res) {
-    var userId = req.params.userId;
-    userModel.findUserById(userId)
-        .then(function (data) {
-            res.json(data.reviews);
-            return;
-        }, function (err) {
-            res.json(err);
-            return;
-        });
-}
-
 function getFollowersList(req, res) {
     var userId = req.params.userId;
     userModel.findUserById(userId)
@@ -307,6 +299,32 @@ function unfollowUser(req, res) {
     var userId = req.params.userId;
     var host = req.body;
     userModel.unfollowUser(userId, host)
+        .then(function (response) {
+            res.json(response);
+            return;
+        }, function (err) {
+            res.json(err);
+            return;
+        });
+}
+
+function removeFromFollowersList(req, res) {
+    var userId = req.params.userId;
+    var follower = req.body;
+    userModel.removeFromFollowersList(userId, follower._id)
+        .then(function (response) {
+            res.json(response);
+            return;
+        }, function (err) {
+            res.json(err);
+            return;
+        });
+}
+
+function removeFromFollowingList(req, res) {
+    var userId = req.params.userId;
+    var following = req.body;
+    userModel.removeFromFollowingList(userId, following._id)
         .then(function (response) {
             res.json(response);
             return;

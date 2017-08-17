@@ -1,4 +1,4 @@
-<div class="pro pro-body pro-wishlist">
+<div class="pro pro-body pro-review">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -12,7 +12,8 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav nav-pills navbar-right">
                     <li><a ng-href="#!/profile" class="smoothScroll fa fa-user"> Profile</a></li>
-                    <li><a ng-href="#!/review" class="smoothScroll fa fa-sticky-note"> Reviews</a></li>
+                    <li><a ng-href="#!/wishList" ng-hide="model.userRole === 'Host'" class="smoothScroll fa fa-list"> Wish List</a></li>
+                    <li><a ng-href="#!/wishList" ng-hide="model.userRole === 'Traveller'" class="smoothScroll fa fa-list"> Hosting Cities</a></li>
                     <li><a ng-click="model.following()" ng-hide="model.userRole === 'Host'" class="smoothScroll fa fa-users"> Following</a></li>
                     <li><a ng-href="#!/followers" ng-hide="model.userRole === 'Traveller'" class="smoothScroll fa fa-users"> Followers</a></li>
                     <li><a ng-click="model.place()" class="smoothScroll fa fa-search"> Search Place</a></li>
@@ -22,30 +23,26 @@
     </nav>
 
     <div class="container-fluid pro-split-view">
-        <div class="row">
-            <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+        <div>
+            <ul class="nav nav-pills">
+                <li><a ng-href="#!/review" class="pro-unselected smoothScroll fa fa-sticky-note"> Reviews for you</a></li>
+                <li><a ng-href="#!/givenReview" class="pro-selected smoothScroll fa fa-sticky-note"> Reviews by you</a></li>
+            </ul>
+            <hr>
+            <div id="givenReview">
                 <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="val in model.places">
-                        <a>{{val.placeName | uppercase}}</a>
-                        <!--<button ng-click="model.getReview(model.placeName | lowercase)"-->
-                                <!--class="smoothScroll fa fa-sticky-note fa-pull-right"> Reviews-->
-                        <!--</button>-->
-                        <button ng-click="model.removeFromList(val.placeName | lowercase)"
-                                ng-hide="model.userRole === 'Host'"
-                                class="smoothScroll fa fa-plus fa-pull-right"> Remove from Wish List
-                        </button>
-                        <button ng-click="model.removeFromList(val.placeName | lowercase)"
-                                ng-hide="model.userRole === 'Traveller'"
-                                class="smoothScroll fa fa-plus fa-pull-right"> Remove from Hosting Cities
-                        </button>
+                    <li class="list-group-item" ng-repeat="val in model.reviewByUser">
+                        <button ng-click="model.deleteReview(val._id)"
+                                class="smoothScroll pull-right"> Delete Review</button>
+                        <p>Review for: {{val._user.firstName}} {{val._user.lastName}}</p>
+                        <p>Review: {{val.content}}</p>
                     </li>
                 </ul>
             </div>
         </div>
+
     </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container-fluid">
-        </div>
     </nav>
 </div>

@@ -7,6 +7,7 @@ html {
 body {
   height: 100%;
 }
+
 .wrapper {
   height: 100% !important;
   height: 100%;
@@ -139,8 +140,8 @@ p.social a.facebook {
 p.social a.gplus {
   background-color: #c21f25;
 }
-p.social a.twitter {
-  background-color: #3cf;
+p.social a.github {
+  background-color: black;
 }
 p.social a.instagram {
   background-color: #cd4378;
@@ -960,4 +961,25 @@ a.list-group-item.active > .badge,
 }
 .nav-pills > li > a > .badge {
   margin-left: 3px;
+}
+
+.contact-detail {
+  background: #ffffff;
+  border: 4px solid #000000;
+  position: relative;
+  top: 140px;
+}
+
+.contact-detail .col-md-6 {
+  padding: 82px;
+}
+
+.contact-detail .col-md-6:first-child {
+  border-right: 4px solid #000000;
+}
+
+.medium-icon {
+  color: #ffa400;
+  font-size: 36px !important;
+  font-weight: bold;
 }

@@ -7,21 +7,39 @@ var userReviewModel = mongoose.model("UserReviewModel", userReviewSchema);
 
 userReviewModel.createReview = createReview;
 userReviewModel.deleteReview = deleteReview;
+userReviewModel.deleteReviewByUser = deleteReviewByUser;
+userReviewModel.findReviewForUser = findReviewForUser;
+userReviewModel.findReviewByUser = findReviewByUser;
 
 module.exports = userReviewModel;
 
-var userModel = require("./user.model.server");
+// var userModel = require("./user.model.server");
 
 function createReview(review) {
-    return userReviewModel.create(review)
-        .then(function (review) {
-            return userModel.addReviewToList(review);
+    return userReviewModel.create(review);
+}
+
+function deleteReview(reviewId) {
+    return userReviewModel.remove({_id: reviewId});
+}
+
+function deleteReviewByUser(userId) {
+    return userReviewModel.remove({reviewer: userId})
+        .then(function (response) {
+            return userReviewModel.remove({_user: userId});
         });
 }
 
-function deleteReview(reviewId, userId) {
-    return userReviewModel.remove(reviewId)
-        .then(function (response) {
-            return userModel.removeReviewFromList(userId, reviewId);
-        })
+function findReviewForUser(userId) {
+    return userReviewModel.find({_user: userId})
+        .populate('_user')
+        .populate('reviewer')
+        .exec();
+}
+
+function findReviewByUser(userId) {
+    return userReviewModel.find({reviewer: userId})
+        .populate('_user')
+        .populate('reviewer')
+        .exec();
 }

@@ -8,6 +8,8 @@ app.get("/api/project/place/:placeName/user",  checkFollower);
 app.post("/api/project/place/add/:placeName", addFollower);
 app.post("/api/project/place/remove/:placeName", removeFollower);
 app.get("/api/project/placeHost/:placeName", searchHost);
+app.post("/api/project/delete/host/place/:userId", removeFromHostsList);
+app.post("/api/project/delete/follower/place/:userId", removeFromFollowersList);
 
 function checkFollower(req, res) {
     var placeName = req.params.placeName;
@@ -87,6 +89,32 @@ function searchHost(req, res) {
     placeModel.findByName(placeName)
         .then(function (place) {
             res.json(place);
+            return;
+        }, function (err) {
+            res.json(err);
+            return;
+        });
+}
+
+function removeFromHostsList(req, res) {
+    var userId = req.params.userId;
+    var place = req.body;
+    placeModel.removeFromHostsList(userId, place._id)
+        .then(function (response) {
+            res.json(response);
+            return;
+        }, function (err) {
+            res.json(err);
+            return;
+        });
+}
+
+function removeFromFollowersList(req, res) {
+    var userId = req.params.userId;
+    var place = req.body;
+    placeModel.removeFromFollowersList(userId, place._id)
+        .then(function (response) {
+            res.json(response);
             return;
         }, function (err) {
             res.json(err);

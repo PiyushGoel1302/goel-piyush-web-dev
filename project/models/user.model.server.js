@@ -9,7 +9,7 @@ userModel.createUser = createUser;
 userModel.findUserById = findUserById;
 userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
-userModel.findUserByCredentials = findUserByCredentials;
+// userModel.findUserByCredentials = findUserByCredentials;
 userModel.findUserByUsername = findUserByUsername;
 userModel.findUserByGoogleId = findUserByGoogleId;
 userModel.findUserByFacebookId = findUserByFacebookId;
@@ -19,6 +19,8 @@ userModel.followUser = followUser;
 userModel.unfollowUser = unfollowUser;
 userModel.addReviewToList = addReviewToList;
 userModel.removeReviewFromList = removeReviewFromList;
+userModel.removeFromFollowersList = removeFromFollowersList;
+userModel.removeFromFollowingList = removeFromFollowingList;
 
 module.exports = userModel;
 
@@ -52,9 +54,9 @@ function deleteUser(userId) {
     return userModel.remove({_id: userId});
 }
 
-function findUserByCredentials(username, password) {
-    return userModel.findOne({username: username, password: password});
-}
+// function findUserByCredentials(username, password) {
+//     return userModel.findOne({username: username, password: password});
+// }
 
 function findUserByUsername(username) {
     return userModel.findOne({username: username});
@@ -127,6 +129,24 @@ function removeReviewFromList(userId, reviewId) {
         .then(function (user) {
             var index = user.reviews.indexOf(reviewId);
             user.reviews.splice(index, 1);
+            return user.save();
+        });
+}
+
+function removeFromFollowersList(userId, followerId) {
+    return userModel.findById(followerId)
+        .then(function (user) {
+            var index = user.following.indexOf(userId);
+            user.following.splice(index, 1);
+            return user.save();
+        });
+}
+
+function removeFromFollowingList(userId, followingId) {
+    return userModel.findById(followingId)
+        .then(function (user) {
+            var index = user.followers.indexOf(userId);
+            user.followers.splice(index, 1);
             return user.save();
         });
 }

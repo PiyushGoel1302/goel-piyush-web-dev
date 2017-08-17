@@ -15,10 +15,13 @@
     <div class="container-fluid pro-split-view">
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
-                <h1>Details:</h1>
-                <h3>Name: {{model.follower.firstName}} {{model.follower.lastName}}</h3>
-                <h4>Email Id: {{model.follower.email}}</h4>
-                <h4>Contact Info: {{model.follower.phone}}</h4>
+                <h2>Details:</h2>
+                <h4>Name:</h4>
+                <p>{{model.follower.firstName}} {{model.follower.lastName}}</p>
+                <h4>Email Id:</h4>
+                <p>{{model.follower.email}}</p>
+                <h4>Contact Info:</h4>
+                <p>{{model.follower.phone}}</p>
                 <h4>Favorites:</h4>
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="val in model.follower.wishlist">

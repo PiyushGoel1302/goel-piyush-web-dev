@@ -100,6 +100,22 @@
                     user: checkLogin
                 }
             })
+            .when("/review", {
+                templateUrl: "views/reviews/templates/review.view.client.html",
+                controller: "reviewController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkLogin
+                }
+            })
+            .when("/givenReview", {
+                templateUrl: "views/reviews/templates/given-review.view.client.html",
+                controller: "reviewController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkLogin
+                }
+            })
             .when("/review/:userId", {
                 templateUrl: "views/reviews/templates/user-review.view.client.html",
                 controller: "userReviewController",

@@ -1,32 +1,33 @@
 /**
- * Created by piyushgoel on 8/16/17.
+ * Created by piyushgoel on 8/17/17.
  */
 (function () {
     angular
         .module("TravelMate")
-        .controller("userReviewController", userReviewController);
+        .controller("reviewController", reviewController);
 
-    function userReviewController($routeParams, userReviewService, user, $route, userService) {
+    function reviewController($rootScope, userReviewService, user, $route, $location) {
         var model = this;
         model.userId = user._id;
         model.userRole = user.role;
 
-        model.reviewUserId = $routeParams.userId;
         model.addReview = addReview;
         model.deleteReview = deleteReview;
+        model.following = following;
+        model.place = place;
 
         function init() {
-            userService.findUserByUserId(model.reviewUserId)
-                .then(function (response) {
-                    model.reviewUser = response.data;
-                });
-            userReviewService.findReviewForUser(model.reviewUserId)
+            userReviewService.findReviewForUser(model.userId)
                 .then(function (response) {
                     model.reviewForUser = response.data;
                 });
+            userReviewService.findReviewByUser(model.userId)
+                .then(function (response) {
+                    model.reviewByUser = response.data;
+                });
         }
         init();
-        
+
         function addReview(content) {
             userReviewService.addReview(content, model.reviewUserId, model.userId)
                 .then(function (response) {
@@ -39,6 +40,16 @@
                 .then(function (response) {
                     $route.reload();
                 });
+        }
+
+        function following() {
+            $rootScope.placeForHost = null;
+            $location.url("/following");
+        }
+
+        function place() {
+            $rootScope.place = null;
+            $location.url("/place");
         }
     }
 })();

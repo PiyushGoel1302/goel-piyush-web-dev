@@ -15,11 +15,15 @@
     <div class="container-fluid pro-split-view">
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
-                <h1>Details:</h1>
-                <h3>Venue name: {{model.place.name}}</h3>
-                <h4>Location: {{model.place.location.formattedAddress}}</h4>
-                <h4>Timings: {{model.place.hours.status}}</h4>
-                <h4>Rating:{{model.place.rating}}</h4>
+                <h2>Details:</h2>
+                <h4>Venue name:</h4>
+                <p>{{model.place.name}}</p>
+                <h4>Location:</h4>
+                <p>{{model.place.location.formattedAddress}}</p>
+                <h4>Timings:</h4>
+                <p>{{model.place.hours.status}}</p>
+                <h4>Rating:</h4>
+                <p>{{model.place.rating}}</p>
             </div>
         </div>
     </div>

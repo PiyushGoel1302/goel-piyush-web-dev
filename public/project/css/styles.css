@@ -38,6 +38,14 @@ input, textarea {
     color: #000;
 }
 
+.pro .pro-selected {
+    background-color: rgb(175, 108, 67);
+}
+
+.pro .pro-unselected {
+    background-color: white;
+}
+
 .pro .navbar-default .navbar-toggle .icon-bar {
     background-color: #000;
     border-color: #000;
