@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 
 var userReviewSchema = mongoose.Schema({
     content:   String,
-    reviewer:  [{type: mongoose.Schema.Types.ObjectId, ref: 'UserModelProject'}],
+    reviewer:  {type: mongoose.Schema.Types.ObjectId, ref: 'UserModelProject'},
     _user:     {type: mongoose.Schema.Types.ObjectId, ref: 'UserModelProject'},
     dateCreated: {type: Date, default: Date.now()}
 }, {collection: 'projectuserreview'});

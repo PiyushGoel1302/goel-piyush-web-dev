@@ -27,6 +27,9 @@
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="val in model.following">
                         <a ng-href="#!/host/{{val._id}}">{{val.firstName | uppercase}} {{val.lastName | uppercase}}</a>
+                        <button ng-click="model.review(val._id)"
+                                class="smoothScroll fa fa-sticky-note pull-right"> Reviews
+                        </button>
                         <button ng-click="model.unfollow(val)"
                                 class="smoothScroll fa fa-plus pull-right"> Unfollow
                         </button>
@@ -62,7 +65,7 @@
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="val in model.result.hosts">
                         <a ng-href="#!/host/{{val._id}}">{{val.firstName | uppercase}} {{val.lastName | uppercase}}</a>
-                        <button ng-click="model.getReview(val._id)"
+                        <button ng-click="model.review(val._id)"
                                 class="smoothScroll fa fa-sticky-note pull-right"> Reviews
                         </button>
                         <button ng-hide="model.alreadyFollowing(val._id)" ng-click="model.follow(val)"

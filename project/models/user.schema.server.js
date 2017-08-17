@@ -14,6 +14,7 @@ var userSchema = mongoose.Schema({
     following:   [{type: mongoose.Schema.Types.ObjectId, ref: "UserModelProject"}],
     followers:   [{type: mongoose.Schema.Types.ObjectId, ref: "UserModelProject"}],
     wishlist:    [{type: mongoose.Schema.Types.ObjectId, ref: "PlaceModelProject"}],
+    reviews:     [{type: mongoose.Schema.Types.ObjectId, ref: "UserReviewModel"}],
     google:      {id: String, token: String},
     facebook:    {id: String, token: String},
     dateCreated: {type: Date, default: Date.now()}

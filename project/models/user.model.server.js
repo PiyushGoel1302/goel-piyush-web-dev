@@ -17,6 +17,8 @@ userModel.addToWishlist = addToWishlist;
 userModel.removeFromWishlist = removeFromWishlist;
 userModel.followUser = followUser;
 userModel.unfollowUser = unfollowUser;
+userModel.addReviewToList = addReviewToList;
+userModel.removeReviewFromList = removeReviewFromList;
 
 module.exports = userModel;
 
@@ -38,6 +40,7 @@ function findUserById(userId) {
         .populate('wishlist', 'placeName')
         .populate('followers')
         .populate('following')
+        .populate('reviews')
         .exec();
 }
 
@@ -90,14 +93,6 @@ function followUser(userId, host) {
                     return host.save();
                 });
         });
-    // return userModel.update({_id: userId}, {$addToSet: {
-    //     following: [hostId]
-    // }})
-    //     .then(function (status) {
-    //         return userModel.update({_id: hostId}, {$addToSet: {
-    //             followers: [userId]
-    //         }});
-    //     });
 }
 
 function unfollowUser(userId, host) {
@@ -115,5 +110,23 @@ function unfollowUser(userId, host) {
                     host.followers.splice(index, 1);
                     return host.save();
                 });
+        });
+}
+
+function addReviewToList(review) {
+    return userModel.findUserById(review._user)
+        .then(function (user) {
+            user.reviews.push(review._id);
+            return user.save();
+        })
+}
+
+function removeReviewFromList(userId, reviewId) {
+    return userModel
+        .findById(userId)
+        .then(function (user) {
+            var index = user.reviews.indexOf(reviewId);
+            user.reviews.splice(index, 1);
+            return user.save();
         });
 }

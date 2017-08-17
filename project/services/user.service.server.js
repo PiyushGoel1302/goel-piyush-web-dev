@@ -31,6 +31,7 @@ app.put("/api/project/user/:userId", updateUser);
 app.delete("/api/project/user/:userId", deleteUser);
 app.get("/api/project/checkLogin", checkLogin);
 app.get("/api/project/wishlist/:userId", getWishList);
+app.get("/api/project/reviews/:userId", getReviews);
 app.get("/api/project/followers/user/:userId", getFollowersList);
 app.get("/api/project/following/user/:userId", getFollowingList);
 app.put("/api/project/follow/user/:userId", followUser);
@@ -246,6 +247,18 @@ function getWishList(req, res) {
     userModel.findUserById(userId)
         .then(function (data) {
             res.json(data.wishlist);
+            return;
+        }, function (err) {
+            res.json(err);
+            return;
+        });
+}
+
+function getReviews(req, res) {
+    var userId = req.params.userId;
+    userModel.findUserById(userId)
+        .then(function (data) {
+            res.json(data.reviews);
             return;
         }, function (err) {
             res.json(err);

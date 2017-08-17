@@ -19,7 +19,6 @@
             userService.getWishList(userId)
                 .then(function (response) {
                     model.places = response.data;
-                    // console.log(model.places);
                 })
         }
         init();

@@ -27,6 +27,9 @@
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="val in model.followers">
                         <a ng-href="#!/follower/{{val._id}}">{{val.firstName | uppercase}} {{val.lastName | uppercase}}</a>
+                        <button ng-click="model.review(val._id)"
+                                class="smoothScroll fa fa-sticky-note pull-right"> Reviews
+                        </button>
                     </li>
                 </ul>
             </div>

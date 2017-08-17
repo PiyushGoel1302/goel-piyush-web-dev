@@ -20,7 +20,7 @@
             "getFollowersList": getFollowersList,
             "getFollowingList": getFollowingList,
             "followUser": followUser,
-            "unfollowUser": unfollowUser
+            "unfollowUser": unfollowUser,
         };
 
         function checkLogin() {

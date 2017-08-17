@@ -6,7 +6,7 @@
         .module("TravelMate")
         .controller("hostDetailsController", hostDetailsController);
 
-    function hostDetailsController($routeParams, userService) {
+    function hostDetailsController($routeParams, userService, $location) {
         var model = this;
 
         model.hostId = $routeParams.hostId;

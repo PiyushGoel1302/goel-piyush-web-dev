@@ -16,6 +16,7 @@
         model.alreadyFollowing = alreadyFollowing;
         model.follow = follow;
         model.place = place;
+        model.review = review;
 
         function init() {
             userService.getFollowersList(userId)
@@ -68,6 +69,10 @@
         function place() {
             $rootScope.place = null;
             $location.url("/place");
+        }
+
+        function review(reviewUserId) {
+            $location.url("/review/" + reviewUserId);
         }
     }
 })();

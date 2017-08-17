@@ -12,6 +12,7 @@
         model.userRole = user.role;
 
         model.place = place;
+        model.review = review;
 
         function init() {
             userService.getFollowersList(userId)
@@ -24,6 +25,10 @@
         function place() {
             $rootScope.place = null;
             $location.url("/place");
+        }
+
+        function review(reviewUserId) {
+            $location.url("/review/" + reviewUserId);
         }
     }
 })();
