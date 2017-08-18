@@ -19,8 +19,12 @@
 
     <div class="container-fluid pro-split-view">
         <div class="row">
-            <div class="col-xs-12 col-sm-12">
+            <div class="col-xs-12">
                 <h2>Hello Admin</h2>
+
+                <div ng-show="model.errorMessage" class="text-center alert alert-danger">
+                    {{model.errorMessage}}
+                </div>
 
                 <ul class="list-group">
                     <li class="list-group-item">

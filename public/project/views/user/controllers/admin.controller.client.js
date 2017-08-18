@@ -31,15 +31,17 @@
         
         function changeUser(user) {
             if(!model.userId) {
-                user.password = user.username;
-                userService.register(user)
-                    .then(function (response) {
-                        $route.reload();
-                    });
+                if(user.role === 'Traveller' || user.role === 'Host' || user.role === 'Admin') {
+                    user.password = user.username;
+                    userService.register(user);
+                } else {
+                    model.errorMessage = "User Role is incorrect";
+                    return;
+                }
             } else {
                 userService.updateUser(model.userId, user);
-                $route.reload();
             }
+            $route.reload();
         }
         
         function removeUser(user) {
