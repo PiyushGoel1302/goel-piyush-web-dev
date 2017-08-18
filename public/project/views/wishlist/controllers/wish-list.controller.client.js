@@ -14,6 +14,7 @@
         model.following = following;
         model.place = place;
         model.removeFromList = removeFromList;
+        model.getReview = getReview;
 
         function init() {
             userService.getWishList(userId)
@@ -38,6 +39,10 @@
         function place() {
             $rootScope.place = null;
             $location.url("/place");
+        }
+
+        function getReview(placeId) {
+            $location.url("/placeReview/" + placeId);
         }
     }
 })();

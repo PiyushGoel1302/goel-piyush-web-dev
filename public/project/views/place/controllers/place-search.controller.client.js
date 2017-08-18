@@ -32,9 +32,7 @@
                 });
             placeService.findIfAlreadyInList(placeName, userId, model.userRole)
                 .then(function (response) {
-
                     model.alreadyInList = response.data !== null;
-                    // console.log(model.alreadyInList);
                 });
         }
 

@@ -208,7 +208,7 @@ function getUserById(req, res) {
         .findUserById(userId)
         .then(function (user) {
             res.json(user);
-        })
+        });
 }
 
 function createUser(req, res) {

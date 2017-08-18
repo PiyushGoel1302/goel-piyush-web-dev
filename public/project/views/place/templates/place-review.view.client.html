@@ -1,0 +1,47 @@
+<div class="pro pro-body pro-details">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-left">
+                <a ng-href="#!/place" class="pro-glyphicon">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="smoothScroll navbar-brand">TravelMate</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid pro-split-view">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+                <div>
+                    <h3>Reviews for {{model.place.name}}:</h3>
+
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="val in model.reviewForPlace">
+                            <button ng-click="model.deleteReview(val._id)" ng-show="val.reviewer._id === model.userId"
+                                    class="smoothScroll pull-right"> Delete Review</button>
+                            <p>Reviewer: {{val.reviewer.firstName}} {{val.reviewer.lastName}}</p>
+                            <p>Review: {{val.content}}</p>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+                <label for="review">Write a Review:</label>
+                <textarea name="review"
+                          rows="3"
+                          ng-model="model.review.content"
+                          class="form-control"
+                          placeholder="Write a Review"
+                          id="review"></textarea>
+                <button ng-click="model.addReview(model.review.content)" class="btn btn-primary btn-block">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+        </div>
+    </nav>
+</div>

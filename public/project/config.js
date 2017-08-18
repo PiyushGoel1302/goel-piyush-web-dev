@@ -132,6 +132,14 @@
                     user: checkLogin
                 }
             })
+            .when("/placeReview/:placeId", {
+                templateUrl: "views/place/templates/place-review.view.client.html",
+                controller: "placeReviewController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkLogin
+                }
+            })
     }
 
     function checkLogin(userService, $q, $location) {

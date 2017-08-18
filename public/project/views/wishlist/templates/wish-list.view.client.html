@@ -27,9 +27,9 @@
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="val in model.places">
                         <a>{{val.placeName | uppercase}}</a>
-                        <!--<button ng-click="model.getReview(model.placeName | lowercase)"-->
-                                <!--class="smoothScroll fa fa-sticky-note fa-pull-right"> Reviews-->
-                        <!--</button>-->
+                        <button ng-click="model.getReview(val._id)"
+                                class="smoothScroll fa fa-sticky-note fa-pull-right"> Reviews
+                        </button>
                         <button ng-click="model.removeFromList(val.placeName | lowercase)"
                                 ng-hide="model.userRole === 'Host'"
                                 class="smoothScroll fa fa-plus fa-pull-right"> Remove from Wish List

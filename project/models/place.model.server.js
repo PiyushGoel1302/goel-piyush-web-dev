@@ -15,6 +15,7 @@ placeModel.findByName = findByName;
 placeModel.removeFromHostsList = removeFromHostsList;
 placeModel.removeFromFollowersList = removeFromFollowersList;
 placeModel.deleteUserFromPlaces = deleteUserFromPlaces;
+placeModel.findPlaceByPlaceId = findPlaceByPlaceId;
 
 module.exports = placeModel;
 var userModel = require("./user.model.server");
@@ -147,4 +148,8 @@ function deleteUserFromPlaces(user) {
                 return value.save();
         });
     });
+}
+
+function findPlaceByPlaceId(placeId) {
+    return placeModel.findById(placeId);
 }

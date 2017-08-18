@@ -15,6 +15,7 @@
         this.searchHost = searchHost;
         this.removeFromHostsList = removeFromHostsList;
         this.removeFromFollowersList = removeFromFollowersList;
+        this.findPlaceByPlaceId = findPlaceByPlaceId;
 
         client_id = "5DASS3X4IBEZDYMUA3LQOBJKKQTERN2AXMCIJFIFTV2YQFQF";
 
@@ -60,6 +61,10 @@
         function removeFromFollowersList(userId, place) {
             var url = "/api/project/delete/follower/place/" + userId;
             return $http.post(url, place);
+        }
+
+        function findPlaceByPlaceId(placeId) {
+            return $http.get("/api/project/place/" + placeId);
         }
     }
 })();
