@@ -44,21 +44,21 @@
         function deleteUser(user) {
             userReviewService.deleteReviewByUser(user._id);
 
-            if(user.role === 'Host') {
-                user.followers.forEach(function (value) {
-                    userService.removeFromFollowersList(user._id, value);
-                });
-                user.wishlist.forEach(function (value) {
-                    placeService.removeFromHostsList(user._id, value);
-                });
-            } else if(user.role === 'Traveller') {
-                user.following.forEach(function (value) {
-                    userService.removeFromFollowingList(user._id, value);
-                });
-                user.wishlist.forEach(function (value) {
-                    placeService.removeFromFollowersList(user._id, value);
-                });
-            }
+            // if(user.role === 'Host') {
+            //     user.followers.forEach(function (value) {
+            //         userService.removeFromFollowersList(user._id, value);
+            //     });
+            //     user.wishlist.forEach(function (value) {
+            //         placeService.removeFromHostsList(user._id, value);
+            //     });
+            // } else if(user.role === 'Traveller') {
+            //     user.following.forEach(function (value) {
+            //         userService.removeFromFollowingList(user._id, value);
+            //     });
+            //     user.wishlist.forEach(function (value) {
+            //         placeService.removeFromFollowersList(user._id, value);
+            //     });
+            // }
 
             userService.deleteUser(user._id)
                 .then(function (response) {

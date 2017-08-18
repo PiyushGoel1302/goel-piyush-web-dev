@@ -21,8 +21,10 @@ userModel.addReviewToList = addReviewToList;
 userModel.removeReviewFromList = removeReviewFromList;
 userModel.removeFromFollowersList = removeFromFollowersList;
 userModel.removeFromFollowingList = removeFromFollowingList;
+userModel.findAllUsers = findAllUsers;
 
 module.exports = userModel;
+var placeModel = require("./place.model.server");
 
 function findUserByGoogleId(googleId) {
     return userModel.findOne({'google.id': googleId});
@@ -51,12 +53,30 @@ function updateUser(userId, user) {
 }
 
 function deleteUser(userId) {
-    return userModel.remove({_id: userId});
+    return userModel.findUserById(userId)
+        .then(function (user) {
+            return userModel.remove({_id: user._id})
+                .then(function (response) {
+                    return userModel
+                        .find()
+                        .then(function (response) {
+                            return response.forEach(function (value) {
+                                if(user.role === 'Traveller') {
+                                    var index = value.followers.indexOf(userId);
+                                    value.followers.splice(index, 1);
+                                } else if(user.role === 'Host') {
+                                    var index2 = value.following.indexOf(userId);
+                                    value.following.splice(index2, 1);
+                                }
+                                return value.save()
+                                    .then(function (response) {
+                                        return placeModel.deleteUserFromPlaces(user);
+                                    });
+                            });
+                        });
+                });
+        });
 }
-
-// function findUserByCredentials(username, password) {
-//     return userModel.findOne({username: username, password: password});
-// }
 
 function findUserByUsername(username) {
     return userModel.findOne({username: username});
@@ -149,4 +169,8 @@ function removeFromFollowingList(userId, followingId) {
             user.followers.splice(index, 1);
             return user.save();
         });
+}
+
+function findAllUsers() {
+    return userModel.find();
 }

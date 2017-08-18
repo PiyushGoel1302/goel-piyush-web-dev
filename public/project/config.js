@@ -36,6 +36,14 @@
                     user: checkLogin
                 }
             })
+            .when("/adminProfile", {
+                templateUrl: "views/user/templates/admin.view.client.html",
+                controller: "adminController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkLogin
+                }
+            })
             .when("/newprofile", {
                 templateUrl: "views/user/templates/new-profile.view.client.html",
                 controller: "newProfileController",

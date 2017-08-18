@@ -14,6 +14,7 @@ placeModel.removeHost = removeHost;
 placeModel.findByName = findByName;
 placeModel.removeFromHostsList = removeFromHostsList;
 placeModel.removeFromFollowersList = removeFromFollowersList;
+placeModel.deleteUserFromPlaces = deleteUserFromPlaces;
 
 module.exports = placeModel;
 var userModel = require("./user.model.server");
@@ -129,4 +130,21 @@ function removeFromFollowersList(userId, placeId) {
             place.followers.splice(index, 1);
             return place.save();
         });
+}
+
+function deleteUserFromPlaces(user) {
+    return placeModel
+        .find()
+        .then(function (response) {
+            return response.forEach(function (value) {
+                if(user.role === 'Traveller') {
+                    var index = value.followers.indexOf(userId);
+                    value.followers.splice(index, 1);
+                } else if(user.role === 'Host') {
+                    var index2 = value.hosts.indexOf(userId);
+                    value.hosts.splice(index2, 1);
+                }
+                return value.save();
+        });
+    });
 }

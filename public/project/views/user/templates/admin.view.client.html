@@ -1,0 +1,156 @@
+<div class="pro pro-body pro-login">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a class="smoothScroll navbar-brand">TravelMate</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav nav-pills navbar-right">
+                    <li><a ng-click="model.logout()" class="smoothScroll fa fa-sign-out"> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid pro-split-view">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <h2>Hello Admin</h2>
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-2 text-center">
+                                <label>User Name</label>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <label>First Name</label>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <label>Last Name</label>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <label>Email Id</label>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <label>User Role</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-2 text-center">
+                                <!--<label>User Name</label>-->
+                                <input name="editUsername"
+                                       ng-model="model.newUser.username"
+                                       type="text"
+                                       class="form-control"
+                                       id="editUsername"/>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <!--<label>First Name</label>-->
+                                <input name="editFirstName"
+                                       ng-model="model.newUser.firstName"
+                                       type="text"
+                                       class="form-control"
+                                       id="editFirstame"/>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <!--<label>Last Name</label>-->
+                                <input name="editLastName"
+                                       ng-model="model.newUser.lastName"
+                                       type="text"
+                                       class="form-control"
+                                       id="editLastame"/>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <!--<label>Email Id</label>-->
+                                <input name="editEmail"
+                                       ng-model="model.newUser.email"
+                                       type="text"
+                                       class="form-control"
+                                       id="editEmail"/>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <!--<label>User Role</label>-->
+                                <input name="editRole"
+                                       ng-model="model.newUser.role"
+                                       type="text"
+                                       class="form-control"
+                                       id="editRole"/>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <button class="smoothScroll fa fa-check"
+                                        ng-click="model.changeUser(model.newUser)"></button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="user in model.users">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <input name="username"
+                                       ng-model="user.username"
+                                       type="text"
+                                       readonly
+                                       class="form-control"
+                                       id="username"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <input name="firstName"
+                                       ng-model="user.firstName"
+                                       type="text"
+                                       readonly
+                                       class="form-control"
+                                       id="firstame"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <input name="fastName"
+                                       ng-model="user.lastName"
+                                       type="text"
+                                       readonly
+                                       class="form-control"
+                                       id="fastame"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <input name="email"
+                                       ng-model="user.email"
+                                       type="text"
+                                       readonly
+                                       class="form-control"
+                                       id="email"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <input name="role"
+                                       ng-model="user.role"
+                                       type="text"
+                                       readonly
+                                       class="form-control"
+                                       id="role"/>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <button class="smoothScroll fa fa-cog"
+                                        ng-click="model.editUser(user)"></button>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <button class="smoothScroll fa fa-times"
+                                        ng-click="model.removeUser(user)"></button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+        </div>
+    </nav>
+</div>

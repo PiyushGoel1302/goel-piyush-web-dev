@@ -23,11 +23,14 @@
             userService.login(user.username, user.password)
                 .then(function (response) {
                     var _user = response.data;
-                    if(!_user) {
-                       model.errorMessage = "Invalid username and password!!!";
+                    if(_user.role === "Admin") {
+                        $location.url("/adminProfile");
+                        return;
                     } else {
                         $location.url("/profile");
                     }
+                }, function (err) {
+                    model.errorMessage = "Invalid Username and Password combination!!!"
                 });
         }
 

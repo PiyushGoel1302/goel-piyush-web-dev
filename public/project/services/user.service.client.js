@@ -22,7 +22,8 @@
             "followUser": followUser,
             "unfollowUser": unfollowUser,
             "removeFromFollowersList": removeFromFollowersList,
-            "removeFromFollowingList": removeFromFollowingList
+            "removeFromFollowingList": removeFromFollowingList,
+            "findAllUsers": findAllUsers
         };
 
         function checkLogin() {
@@ -103,6 +104,10 @@
         function removeFromFollowingList(userId, following) {
             var url = "/api/project/delete/following/user/" + userId;
             return $http.post(url, following);
+        }
+
+        function findAllUsers(userRole) {
+            return $http.get("/api/project/all/users/" + userRole);
         }
     }
 })();

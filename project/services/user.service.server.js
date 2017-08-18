@@ -36,6 +36,7 @@ app.get("/api/project/followers/user/:userId", getFollowersList);
 app.get("/api/project/following/user/:userId", getFollowingList);
 app.put("/api/project/follow/user/:userId", followUser);
 app.put("/api/project/unfollow/user/:userId", unfollowUser);
+app.get("/api/project/all/users/:userRole", findAllUsers);
 app.post("/api/project/delete/follower/user/:userId", removeFromFollowersList);
 app.post("/api/project/delete/following/user/:userId", removeFromFollowingList);
 
@@ -332,4 +333,18 @@ function removeFromFollowingList(req, res) {
             res.json(err);
             return;
         });
+}
+
+function findAllUsers(req, res) {
+    var userRole = req.params.userRole;
+    if(userRole === 'Admin') {
+        userModel.findAllUsers()
+            .then(function (response) {
+                res.json(response);
+                return;
+            }, function (err) {
+                res.json(err);
+                return;
+            });
+    }
 }
