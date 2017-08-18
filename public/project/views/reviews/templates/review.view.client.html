@@ -32,8 +32,8 @@
             <div id="myReview">
                 <ul class="list-group">
                     <li class="list-group-item" ng-repeat="val in model.reviewForUser">
-                        <button ng-click="model.deleteReview(val._id)"
-                                class="smoothScroll pull-right"> Delete Review</button>
+                        <!--<button ng-click="model.deleteReview(val._id)"-->
+                                <!--class="smoothScroll pull-right"> Delete Review</button>-->
                         <p>Reviewer: {{val.reviewer.firstName}} {{val.reviewer.lastName}}</p>
                         <p>Review: {{val.content}}</p>
                     </li>
