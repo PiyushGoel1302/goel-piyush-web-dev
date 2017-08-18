@@ -20,10 +20,7 @@
             <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
                 <div>
                     <h3>Reviews for {{model.reviewUser.firstName}} {{model.reviewUser.lastName}}:</h3>
-                    <!--<h3>Host name: {{model.host.firstName}} {{model.host.lastName}}</h3>-->
-                    <!--<h4>Email Id: {{model.host.email}}</h4>-->
-                    <!--<h4>Contact Info: {{model.host.phone}}</h4>-->
-                    <!--<h4>Hosting cities:</h4>-->
+
                     <ul class="list-group">
                         <li class="list-group-item" ng-repeat="val in model.reviewForUser">
                             <button ng-click="model.deleteReview(val._id)" ng-show="val.reviewer._id === model.userId"
